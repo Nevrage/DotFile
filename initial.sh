@@ -7,7 +7,7 @@ pip3 install hangups pywal jupyter-notebook/lab rtv # ( or apt instead?)
 # install scim
 sudo apt install libzip-dev libxml2-dev bison  libncurses5-dev libncursesw5-dev
 # cd src && make && sudo make install 
-
+#alsa audiomixer 
 # install webmin 
 sudo sh -c 'echo "deb http://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list'
 wget -q http://www.webmin.com/jcameron-key.asc -O- | sudo apt-key add -

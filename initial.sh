@@ -25,6 +25,7 @@ sudo apt-get install webmin
 # shiny 
 # hyper
 # sauna client
+# italic in vim and in shells 
 # fonts
 # icons and gtk 
 # website for database

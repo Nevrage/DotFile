@@ -15,6 +15,12 @@ sudo apt-get update
 sudo apt-get install webmin
 
 # music player
+# remove top bar in i3,ads gaps, deal with taskbar, use wal's color 
+# https://github.com/addy-dclxvi/almighty-dotfiles
+# https://github.com/ryanoasis/nerd-fonts
+# urxvt: toggle transparency ?
+# urxvt or termite
+# zoom in urxvt,  download and change font 
 # shiny 
 # hyper
 # sauna client

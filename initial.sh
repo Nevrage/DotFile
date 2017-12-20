@@ -21,6 +21,7 @@ sudo apt-get install webmin
 # urxvt: toggle transparency ?
 # urxvt or termite
 # zoom in urxvt,  download and change font 
+# https://github.com/ryanoasis/vim-devicons
 # shiny 
 # hyper
 # sauna client

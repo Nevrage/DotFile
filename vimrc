@@ -3,6 +3,7 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'dylanaraps/wal.vim'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jalvesaq/Nvim-R'
@@ -80,3 +81,7 @@ endif
 "highlight SpellBad     ctermbg=0   ctermfg=1
 "set autoindent                    " set auto indent
 "set ts=2                          " set indent to 2 spaces
+set t_Co=256
+colorscheme wal
+
+

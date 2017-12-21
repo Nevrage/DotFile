@@ -190,3 +190,7 @@ git config --global user.name "Nevrage"
 
 # export DISPLAY=191.168.2.103:0
 # export PULSE_SERVER=tcp:191.168.2.103:4712
+# w3m vs caca
+# process hyper.js and vimrc in windows10 at home
+# Cava in polybar or conky
+# Randomize transparency AND toggle 

@@ -14,6 +14,10 @@ wget -q http://www.webmin.com/jcameron-key.asc -O- | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install webmin
 
+#Docker
+deb [arch=amd64] https://download.docker.com/linux/ubuntu zesty stable
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
 # music player
 # remove top bar in i3,ads gaps, deal with taskbar, use wal's color 
 # https://github.com/addy-dclxvi/almighty-dotfiles

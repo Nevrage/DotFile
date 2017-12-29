@@ -3,6 +3,10 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'spf13/vim-autoclose'
+Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'tex/vimpreviewpandoc'
+Plugin 'vim-scripts/applescript.vim'
 Plugin 'dylanaraps/wal.vim'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
@@ -20,6 +24,10 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'airblade/vim-accent'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'vim-scripts/textutil.vim'
+"Plugin 'vim-airline/vim-airline'
+"#Plugin 'vim-airline/vim-airline-themes'
+Plugin 'chrisbra/csv.vim'
+Plugin 'ryanoasis/vim-devicons'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -84,4 +92,16 @@ endif
 set t_Co=256
 colorscheme wal
 
+let R_term_cmd = "open -na /Applications/iTerm.app -n "
+let R_nvim_wd = 1
+syntax on 
+set encoding=utf8
+set guifont=DroidSansMono\ Nerd\ Font:h11
+
+let vim_markdown_preview_toggle=1
+let vim_markdown_preview_browser='Firefox'
+let vim_markdown_preview_hotkey='<C-m>'
+let vim_markdown_preview_pandoc=1
+
+let maplocalleader = " "
 

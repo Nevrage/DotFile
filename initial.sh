@@ -3,6 +3,24 @@ sudo apt upgrade
 sudo apt install openssh-server ranger tmux vim r-base r-base-dev
 sudo apt-get install -y rofi  terminator steamcmd steam lua node npm gdebi-core pandoc cifs-utils libxml2-dev  pandoc-citeproc libcurl4-gnutls-dev feh libcairo2-dev libxt-dev libssl-dev git android-tools-adb android-tools-fastboot curl adb lynx htop w3m 
 pip3 install hangups pywal jupyter-notebook/lab rtv # ( or apt instead?) 
+### Vim
+# https://github.com/JamshedVesuna/vim-markdown-preview#mac-os-x
+# https://github.com/vim-pandoc/vim-pandoc
+# help usr_28 
+
+#### tmux 
+# http://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/
+# https://tmuxp.git-pull.com/en/latest/examples.html
+# https://gist.github.com/Bekbolatov/6840069e51382965fdad
+# is there a way to fully hide the borders ? 
+# shift so capturing mouse event 
+
+
+### mutt
+# http://therandymon.com/woodnotes/mutt/node58.html
+
+### Ranger
+# ranger --copy-config=all
 
 # install scim
 sudo apt install libzip-dev libxml2-dev bison  libncurses5-dev libncursesw5-dev
@@ -18,7 +36,7 @@ sudo apt-get install webmin
 deb [arch=amd64] https://download.docker.com/linux/ubuntu zesty stable
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-# music player
+# music player and chat client ( weechat and profanity) and rtv and mutt and vim and tmux
 # remove top bar in i3,ads gaps, deal with taskbar, use wal's color 
 # https://github.com/addy-dclxvi/almighty-dotfiles
 # https://github.com/ryanoasis/nerd-fonts
@@ -68,7 +86,11 @@ vim +PluginInstall +qall
 ### my old one in github
 ### as well as the one in the ReportR program 
 ### this one https://www.r-bloggers.com/fun-with-rprofile-and-customizing-r-startup/
-### 
+### package called "mise" for mise en place  
+# https://github.com/rocker-org/shiny/blob/master/Dockerfile
+# https://hub.docker.com/r/rocker/tidyverse/
+# http://pacha.hk/2017-10-03_r_on_ubuntu_16_04.html
+
 
 ##  Installed in R
 # dplyr, httr and then tidyverse
@@ -198,3 +220,4 @@ git config --global user.name "Nevrage"
 # process hyper.js and vimrc in windows10 at home
 # Cava in polybar or conky
 # Randomize transparency AND toggle 
+# nerd font in vim and tmux 

@@ -15,6 +15,9 @@ pip3 install hangups pywal jupyter-notebook/lab rtv # ( or apt instead?)
 # is there a way to fully hide the borders ? 
 # shift so capturing mouse event 
 
+git clone https://github.com/pipeseroni/pipes.sh.git
+cd pipes.sh
+sudo make install
 
 ### mutt
 # http://therandymon.com/woodnotes/mutt/node58.html

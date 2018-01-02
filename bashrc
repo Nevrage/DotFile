@@ -395,7 +395,7 @@ alias bashrc='vim ~/.bashrc'
 alias bashpro='vim ~/.bash_profile'
 alias rpro='vim ~/.Rprofile'
 alias e='exit'
-
+alias pipes='pipes.sh -p 10 -s 5 -R'
 
 alias untar='tar -zxvf'
 

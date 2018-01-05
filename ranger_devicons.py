@@ -11,7 +11,6 @@ import os;
 # https://github.com/ryanoasis/nerd-fonts
 file_node_extensions = {
     'styl'     : '',
-    'zizou'    : '♥',
     'scss'     : '',
     'htm'      : '',
     'html'     : '',

@@ -28,6 +28,8 @@ Plugin 'vim-scripts/textutil.vim'
 "#Plugin 'vim-airline/vim-airline-themes'
 Plugin 'chrisbra/csv.vim'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'jiangmiao/auto-pairs'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -92,7 +94,9 @@ endif
 set t_Co=256
 colorscheme wal
 
-let R_term_cmd = "open -na /Applications/iTerm.app -n "
+
+let R_term = "urxvt"
+"let R_term_cmd = "open -na /Applications/iTerm.app -n "
 let R_nvim_wd = 1
 syntax on 
 set encoding=utf8

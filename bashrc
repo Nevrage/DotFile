@@ -399,4 +399,6 @@ alias pipes='pipes.sh -p 10 -s 5 -R'
 
 alias untar='tar -zxvf'
 
+alias server='python -m SimpleHTTPServer &'
+
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"

@@ -29,7 +29,8 @@ Plugin 'vim-scripts/textutil.vim'
 Plugin 'chrisbra/csv.vim'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'jiangmiao/auto-pairs'
-
+Plugin 'vim-syntastic/syntastic'
+Plugin 'jimhester/lintr.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -108,4 +109,15 @@ let vim_markdown_preview_hotkey='<C-m>'
 let vim_markdown_preview_pandoc=1
 
 let maplocalleader = " "
+let g:syntastic_enable_r_lintr_checker = 1
+let g:syntastic_r_checkers = ['lintr']
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 

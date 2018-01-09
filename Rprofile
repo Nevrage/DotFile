@@ -2,40 +2,41 @@ library(colorout)
 library(tidyverse)
 library(jsonlite)
 library(crayon)
+library(grDevices)
 
-options(prompt=blue('⇨'))
+options(prompt = blue("⇨  "))
 
-colors <- fromJSON("~/.cache/wal/colors.json")
+makecolors <- function() {
+  wal <- fromJSON("~/.cache/wal/colors.json")
+  colors <- wal$colors
+colorize <- function(x) {
+	  paste(as.vector(col2rgb(x)), collapse = ";")
+  }
+  colours <- lapply(colors, colorize)
 
+lapply(colours, function(x){paste(x)})
 
-colorize  <- function (x) {paste(as.vector(col2rgb(x)), collapse = ",")}
-
-
-
-
-normal_color <-  unlist(strsplit(colorize(colors$colors[[1]]),",") %>% lapply(as.integer)) %>% as.numeric
-
-number_color  <- unlist(strsplit(colorize(colors$colors[[2]]),",") %>% lapply(as.integer))%>% as.numeric
-
-negnum_color  <- unlist(strsplit(colorize(colors$colors[[3]]),",") %>% lapply(as.integer))%>% as.numeric
-
-date_color  <-   unlist(strsplit(colorize(colors$colors[[4]]),",") %>% lapply(as.integer)) %>% as.numeric
-
-string_color  <- unlist(strsplit(colorize(colors$colors[[5]]),",") %>% lapply(as.integer)) %>% as.numeric
-
-const_color  <-  unlist(strsplit(colorize(colors$colors[[6]]),",") %>% lapply(as.integer)) %>% as.numeric
-
-error_color  <-  unlist(strsplit(colorize(colors$colors[[7]]),",") %>% lapply(as.integer)) %>% as.numeric
+  escaped <- lapply(colours, function(x){
+			    paste("\x1b[38;2;", x, "m",sep="")
+})
 
 
+  setOutputColors256(normal = 40, negnum = 209, zero = 226,
+                   number = 214, date = 179, string = 85,
+                   const = 35, false = 203, true = 78,
+                   infinite = 39, stderror = 33,
+                   warn = c(1, 0, 1), error = c(1, 15),
+                   verbose = TRUE, zero.limit = NA)
 
-setOutputColors256(normal = normal_color,
-		   number = number_color,
-		   negnum = negnum_color,
-		   date = date_color,
-		   string = string_color,
-		   const = const_color,
-		   stderror = error_color)
+  setOutputColors256( normal = escaped[[12]],
+                      number  = escaped[[2]],
+                      negnum = escaped[[3]],
+                      date = escaped[[4]],
+                      string = escaped[[5]],
+                      const = escaped[[6]],
+                      stderror = escaped[[7]],
+                      true = escaped[[8]],
+                      false = escaped[[9]])
+                                       }
 
-cc <- function() cat(c("\033[2J","\033[0;0H"))
-cc()
+makecolors()

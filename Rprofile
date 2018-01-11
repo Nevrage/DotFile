@@ -28,7 +28,7 @@ lapply(colours, function(x){paste(x)})
                    warn = c(1, 0, 1), error = c(1, 15),
                    verbose = TRUE, zero.limit = NA)
 
-  setOutputColors256( normal = escaped[[12]],
+  setOutputColors256( normal = escaped[[3]],
                       number  = escaped[[2]],
                       negnum = escaped[[3]],
                       date = escaped[[4]],

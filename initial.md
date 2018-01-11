@@ -1,23 +1,55 @@
-sudo apt-get update 
-sudo apt upgrade 
-sudo apt install openssh-server ranger tmux vim r-base r-base-dev
-sudo apt-get install -y rofi  terminator steamcmd steam lua node npm gdebi-core pandoc cifs-utils libxml2-dev  pandoc-citeproc libcurl4-gnutls-dev feh libcairo2-dev libxt-dev libssl-dev git android-tools-adb android-tools-fastboot curl adb lynx htop w3m 
-pip3 install hangups pywal jupyter-notebook/lab rtv # ( or apt instead?) 
-### Vim
-# https://github.com/JamshedVesuna/vim-markdown-preview#mac-os-x
-# https://github.com/vim-pandoc/vim-pandoc
-# help usr_28 
+# General Idea
+*skeleton*
 
-#### tmux 
-# http://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/
-# https://tmuxp.git-pull.com/en/latest/examples.html
-# https://gist.github.com/Bekbolatov/6840069e51382965fdad
-# is there a way to fully hide the borders ? 
-# shift so capturing mouse event 
+# Os agnostic tools
+## R 
+## Python
 
+
+# tty tools
+## vim
+* https://github.com/JamshedVesuna/vim-markdown-preview#mac-os-x
+* https://github.com/vim-pandoc/vim-pandoc
+* help usr_28 
+## stig
+## tmux
+* http://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/
+* https://tmuxp.git-pull.com/en/latest/examples.html
+* https://gist.github.com/Bekbolatov/6840069e51382965fdad
+* is there a way to fully hide the borders ? 
+* shift so capturing mouse event 
+## Misc compile github 
+### pipes 
+```
 git clone https://github.com/pipeseroni/pipes.sh.git
 cd pipes.sh
 sudo make install
+```
+
+# desktop OS/tools
+## Mac specific 
+## terminals 
+## unix desktop 
+### rofi 
+### wm 
+#### i3 
+
+
+# initial ubuntu 
+
+```
+sudo apt-get update 
+sudo apt upgrade 
+```
+
+ ```sudo apt install -y openssh-server ranger tmux vim r-base r-base-dev rofi  terminator steamcmd steam lua node npm gdebi-core pandoc cifs-utils libxml2-dev  pandoc-citeproc libcurl4-gnutls-dev feh libcairo2-dev libxt-dev libssl-dev git android-tools-adb android-tools-fastboot curl adb lynx htop w3m ```
+ ```pip3 install hangups pywal jupyter-notebook/lab rtv # ( or apt instead?) ```
+
+
+# Initial mac:
+
+___________________________________________________________
+
 
 ### mutt
 # http://therandymon.com/woodnotes/mutt/node58.html

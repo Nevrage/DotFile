@@ -4,10 +4,12 @@
 # Os agnostic tools
 ## R 
 ## Python
-
+## Firefox 
+* css: https://github.com/Aris-t2/CustomCSSforFx
 
 # tty tools
 ## vim
+* syntastic: https://github.com/vim-syntastic/syntastic and add nerdfont glyphs ?  
 * https://github.com/JamshedVesuna/vim-markdown-preview#mac-os-x
 * https://github.com/vim-pandoc/vim-pandoc
 * help usr_28 
@@ -47,7 +49,21 @@ sudo apt upgrade
 
 
 # Initial mac:
+## iterm2 
+* https://github.com/fnichol/macosx-iterm2-settings
+* https://github.com/daleroberts/itermplot
 
+
+## Not sure but mac specific ... maybe ? 
+* https://github.com/PeterHajdu/iterm
+* https://github.com/chrisjpowers/iterm_window
+* https://github.com/achiu/consular-iterm
+
+
+# not sure:
+* https://github.com/jimhester/lintr
+* https://github.com/hdra/itermcolors2terminator
+* https://github.com/stuartcryan/custom-iterm-applescripts-for-alfred
 ___________________________________________________________
 
 

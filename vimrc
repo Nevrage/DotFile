@@ -20,12 +20,11 @@ Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'airblade/vim-rooter'
 Plugin 'francoiscabrol/ranger.vim'
-Plugin 'vim-airline/vim-airline'
 Plugin 'airblade/vim-accent'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'vim-scripts/textutil.vim'
-"Plugin 'vim-airline/vim-airline'
-"#Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'chrisbra/csv.vim'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'jiangmiao/auto-pairs'
@@ -126,3 +125,17 @@ let g:syntastic_check_on_wq = 0
 " nnoremap <C-w>E :SyntasticCheck<CR>
 
 let g:syntastic_quiet_messages = { 'type': 'closed_curly_linter' }
+
+
+"[airline] Always show numbered listed of buffers
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#buffer_nr_show=1
+"
+""[airline] Show bottom line always, hide vim mode
+set laststatus=2
+set noshowmode
+
+"[airline] Remove pause after leaving insert mode
+set timeoutlen=50
+let g:airline_powerline_fonts=1 "Requires powerline fonts!
+"

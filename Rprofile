@@ -42,4 +42,6 @@ lapply(colours, function(x){paste(x)})
 makecolors()
 cc <- function() cat(c("\033[2J","\033[0;0H"))
 
+rm(makecolors)
+
 cc()

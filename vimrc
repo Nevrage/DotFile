@@ -1,16 +1,14 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
 Plugin 'spf13/vim-autoclose'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'tex/vimpreviewpandoc'
 Plugin 'vim-scripts/applescript.vim'
 Plugin 'dylanaraps/wal.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jalvesaq/Nvim-R'
 Plugin 'ervandew/screen'
@@ -45,7 +43,7 @@ set hlsearch                      " highlight all search matches
 "set cursorline                    " highlight current line
 set smartcase                     " pay attention to case when caps are used
 set incsearch                     " show search results as I type
-" set vb                            " enable visual bell (disable audio bell)
+"set vb                            " enable visual bell (disable audio bell)
 set ruler                         " show row and column in footer
 set scrolloff=2                   " minimum lines above/below cursor
 set laststatus=2                  " always show status bar
@@ -55,12 +53,13 @@ set clipboard=unnamed             " use the system clipboard
 set wildmenu                      " enable bash style tab completion
 set wildmode=list:longest,full
 set mouse=a
-let R_in_buffer = 0 
+let R_in_buffer = 0
+"let R_clear_line = 1
 let R_applescript = 0 
 let R_tmux_split = 1
 nmap <silent> <C-D> :NERDTreeToggle<CR>
 imap <silent> <C-D> :NERDTreeToggle<CR>
-" set omnifunc=syntaxcomplete
+set omnifunc=syntaxcomplete
 au BufReadPost *Dockerfile set syntax=sh
 au BufReadPost *dockerfile set syntax=sh
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
@@ -97,8 +96,7 @@ set t_Co=256
 colorscheme wal
 
 
-" let R_term = "urxvt"
-let R_term_cmd = "open -na /Applications/iTerm.app -n "
+"let R_term = "urxvt"
 let R_nvim_wd = 1
 syntax on 
 set encoding=utf8
@@ -123,21 +121,29 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 
-" let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-" nnoremap <C-w>E :SyntasticCheck<CR>
+" autocmd FileType r call cm#enable_for_buffer() | sleep 300m | let g:_cm_sources['R']['sort'] = 0
 
-" let g:syntastic_quiet_messages = { 'type': 'closed_curly_linter' }
+Plugin 'roxma/nvim-completion-manager'
+Plugin 'gaalcaras/ncm-R'
+Plugin 'roxma/vim-hug-neovim-rpc'
+Plugin 'sirver/UltiSnips'"
 
+if has("unix")
+  let s:uname = system("uname -s")
+  if s:uname == "Darwin"
+    let R_term_cmd = "open -na /Applications/iTerm.app -n "
+  endif
+endif
 
-"[airline] Always show numbered listed of buffers
-let g:airline#extensions#tabline#enabled=1
+" let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes':
+" [],'passive_filetypes': []  }
+"   1 " nnoremap <C-w>E :SyntasticCheck<CR>
+"     2
+"       3 " let g:syntastic_quiet_messages = { 'type': 'closed_curly_linter'  }
+let g:airline#extension#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_nr_show=1
-"
-""[airline] Show bottom line always, hide vim mode
-set laststatus=2
+set laststatus=2 
 set noshowmode
+set timeoutlen=500
+let g:airline_powerline_fonts=1
 
-"[airline] Remove pause after leaving insert mode
-set timeoutlen=50
-let g:airline_powerline_fonts=1 "Requires powerline fonts!
-"

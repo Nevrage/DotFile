@@ -18,7 +18,7 @@ TTY
 
 
 # terminal emulators
-## xterm ~~ the original terminal ~~ 
+## xterm 
 * Build Xresources (and understand the difference with Xdefaults)
 * have other terminal use the same resources if not loading anything terminal specific 
 * enable copy/paste 

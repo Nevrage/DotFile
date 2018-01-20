@@ -3,6 +3,9 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+
+Plugin 'junegunn/limelight.vim'
+Plugin 'junegunn/goyo.vim'
 Plugin 'spf13/vim-autoclose'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'tex/vimpreviewpandoc'
@@ -147,3 +150,11 @@ set noshowmode
 set timeoutlen=500
 let g:airline_powerline_fonts=1
 
+
+
+
+let R_app = "rice" 
+let R_cmd = "R" 
+let R_hl_term = 0 
+let R_args = []  " if you had set any 
+let R_bracketed_paste = 1"

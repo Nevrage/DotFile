@@ -56,11 +56,6 @@ set mouse=a
 let R_in_buffer = 0
 "let R_clear_line = 1
 let R_applescript = 0 
-let R_app = "rice"
-let R_cmd = "R"
-let R_hl_term = 0
-let R_args = []  " if you had set any
-let R_bracketed_paste = 1"
 let R_tmux_split = 1
 nmap <silent> <C-D> :NERDTreeToggle<CR>
 imap <silent> <C-D> :NERDTreeToggle<CR>

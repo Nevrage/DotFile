@@ -131,7 +131,7 @@ let g:syntastic_check_on_wq = 0
 Plugin 'roxma/nvim-completion-manager'
 Plugin 'gaalcaras/ncm-R'
 Plugin 'roxma/vim-hug-neovim-rpc'
-Plugin 'sirver/UltiSnips'"
+"Plugin 'sirver/UltiSnips'"
 Plugin 'roxma/nvim-yarp'
 if has("unix")
   let s:uname = system("uname -s")
@@ -152,4 +152,3 @@ set noshowmode
 set timeoutlen=500
 let g:airline_powerline_fonts=1
 
-let g:python3_host_prog

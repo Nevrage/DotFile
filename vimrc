@@ -56,6 +56,11 @@ set mouse=a
 let R_in_buffer = 0
 "let R_clear_line = 1
 let R_applescript = 0 
+let R_app = "rice"
+let R_cmd = "R"
+let R_hl_term = 0
+let R_args = []  " if you had set any
+let R_bracketed_paste = 1"
 let R_tmux_split = 1
 nmap <silent> <C-D> :NERDTreeToggle<CR>
 imap <silent> <C-D> :NERDTreeToggle<CR>
@@ -127,7 +132,7 @@ Plugin 'roxma/nvim-completion-manager'
 Plugin 'gaalcaras/ncm-R'
 Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'sirver/UltiSnips'"
-
+Plugin 'roxma/nvim-yarp'
 if has("unix")
   let s:uname = system("uname -s")
   if s:uname == "Darwin"
@@ -147,3 +152,4 @@ set noshowmode
 set timeoutlen=500
 let g:airline_powerline_fonts=1
 
+let g:python3_host_prog

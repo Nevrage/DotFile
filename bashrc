@@ -402,3 +402,5 @@ alias untar='tar -zxvf'
 alias server='python -m SimpleHTTPServer &'
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+alias vm="/usr/local/Cellar/vim/8.0.1400_4/bin/vim"

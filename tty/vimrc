@@ -3,7 +3,8 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-
+Plugin 'KabbAmine/vCoolor.vim'
+Plugin 'l04m33/vlime', {'rtp': 'vim/'}
 Plugin 'junegunn/limelight.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'spf13/vim-autoclose'

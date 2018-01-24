@@ -1,23 +1,10 @@
 # Qui reste:
 * python modules as OS diagnotic 
-
-
-# not sure:
 * https://github.com/jimhester/lintr
 * https://github.com/hdra/itermcolors2terminator
 * https://github.com/stuartcryan/custom-iterm-applescripts-for-alfred
 ___________________________________________________________
 
-
-### mutt
-# http://therandymon.com/woodnotes/mutt/node58.html
-
-### Ranger
-# ranger --copy-config=all
-
-# install scim
-sudo apt install libzip-dev libxml2-dev bison  libncurses5-dev libncursesw5-dev
-# cd src && make && sudo make install 
 #alsa audiomixer 
 # install webmin 
 sudo sh -c 'echo "deb http://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list'

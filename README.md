@@ -1,3 +1,16 @@
+```
+Mutt but notif as well and email server
+w3m and rtv 
+zeroconf 
+Script reg R/python to ipynb
+understand rptoj and load()
+bash/littler
+kodi amd emu ?
+rofi
+scim
+conky
+```
+
 # Generic
 
 * Find a better way to export/import 

@@ -6,6 +6,8 @@ library(grDevices)
 
 options(prompt = blue("⇨  "))
 
+options(rice.editing_mode = "vi",
+        rice.auto_match = TRUE)
 makecolors <- function() {
   wal <- fromJSON("~/.cache/wal/colors.json")
   colors <- wal$colors

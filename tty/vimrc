@@ -3,7 +3,7 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-
+Plugin 'seletskiy/vim-pythonx'
 Plugin 'johngrib/Vim-Game-Snake'
 Plugin 'johngrib/vim-game-code-break'
 Plugin 'kurkale6ka/vim-chess'
@@ -42,6 +42,7 @@ Plugin 'vim-pandoc/vim-rmarkdown'
 Plugin 'ctrlpvim/ctrlp.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+set pyxversion=3
 set shortmess+=I
 filetype plugin indent on    " required
 set nocompatible                  " don't need to be compatible with old vim
@@ -75,7 +76,6 @@ set mouse=a
 let R_in_buffer = 0
 "let R_clear_line = 1
 let R_applescript = 0 
-let R_tmux_split = 1
 nmap <silent> <C-D> :NERDTreeToggle<CR>
 imap <silent> <C-D> :NERDTreeToggle<CR>
 set omnifunc=syntaxcomplete
@@ -135,7 +135,9 @@ colorscheme wal
 let g:airline_powerline_fonts=1 "Requires powerline fonts!
 
 
-"let R_term = "urxvt"
+"let R_term = "xterm"
+
+"let R_term_cmd = "terminator -e rice"
 let R_nvim_wd = 1
 syntax on 
 set encoding=utf8
@@ -175,7 +177,7 @@ if has("unix")
 endif
 
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': []  }
-nnoremap <C-W> :SyntasticCheck<CR>
+"nnoremap <C-W> :SyntasticCheck<CR>
 " let g:syntastic_quiet_messages = { 'type': 'closed_curly_linter'  }
 let g:airline#extension#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_nr_show=1
@@ -198,3 +200,6 @@ let g:gutentags_cache_dir = '~/.vim/tags/'
 
 
 map <C-S> :SyntasticToggleMode<CR>
+
+set shortmess=I " Read :help shortmess for everything else.
+let R_start_libs = 'base, stats, graphics, grDevices, utils, methods, tidyverse'

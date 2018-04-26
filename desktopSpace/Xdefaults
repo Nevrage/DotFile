@@ -1,0 +1,9 @@
+XTerm*faceName: DejaVuSansMono Nerd Font
+XTerm*selectToClipboard: true
+XTerm*visualBell: false
+Xterm*Bell: false
+
+
+URxvt.font:xft: DejaVuSansMono Nerd Font
+
+

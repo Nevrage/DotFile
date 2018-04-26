@@ -234,37 +234,37 @@ case $- in
 
 
 
-																				      alias aws1="ssh -i ~/Desktop/AwsCertificate.pem ubuntu@ec2-35-161-103-183.us-west-2.compute.amazonaws.com"
+alias aws1="ssh -i ~/Desktop/AwsCertificate.pem ubuntu@ec2-35-161-103-183.us-west-2.compute.amazonaws.com"
 
-																				      alias aws2="ssh ylan@ec2-52-27-39-51.us-west-2.compute.amazonaws.com"
+alias aws2="ssh ylan@ec2-52-27-39-51.us-west-2.compute.amazonaws.com"
 
-																				      alias LS="ls -acgilnpLt"
+alias LS="ls -acgilnpLt"
 
-																				      alias hangups="hangups --col-scheme solarized-dark"
+alias hangups="hangups --col-scheme solarized-dark"
 
 
 
-																				      # color names for readibility
+# color names for readibility
 
-																				      reset=$(tput sgr0)
+# reset=$(tput sgr0)
+# 
+# bold=$(tput bold)
+# 
+# black=$(tput setaf 1)
+# 
+# red=$(tput setaf 5)
+# 
+# grey=$(tput setaf 4)
+# 
+# green=$(tput setaf 6)
+# 
+# yellow=$(tput setaf 2)
+# 
+# blue=$(tput setaf 7)
+# 
+# white=$(tput setaf 1)
 
-																				      bold=$(tput bold)
-
-																				      black=$(tput setaf 1)
-
-																				      red=$(tput setaf 5)
-
-																				      grey=$(tput setaf 4)
-
-																				      green=$(tput setaf 6)
-
-																				      yellow=$(tput setaf 2)
-
-																				      blue=$(tput setaf 7)
-
-																				      white=$(tput setaf 1)
-
-																				      [ "$UID" -eq 0 ] && { user_color=$red; }
+[ "$UID" -eq 0 ] && { user_color=$red; }
 
 
 # get current branch in git repo
@@ -293,31 +293,20 @@ function parse_git_branch() {
 
 														# get current status of git repo
 
-														function parse_git_dirty {
+function parse_git_dirty {
 
-																status=`git status 2>&1 | tee`
-
-																	dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
-
-																		untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
-
-																			ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
-
-																				newfile=`echo -n "${status}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
-
-																					renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
-
-																						deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
-
-																							bits=''
-
-																								if [ "${renamed}" == "0" ]; then
-
-																											bits=">${bits}"
-
-																												fi
-
-																													if [ "${ahead}" == "0" ]; then
+status=`git status 2>&1 | tee`
+dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
+untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
+ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
+newfile=`echo -n "${status}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
+renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
+deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
+bits=''
+if [ "${renamed}" == "0" ]; then
+bits=">${bits}"
+fi
+if [ "${ahead}" == "0" ]; then
 
 																																bits="*${bits}"
 
@@ -354,26 +343,26 @@ function parse_git_branch() {
 																																																										else
 
 																																																													echo ""
+fi
 
-																																																														fi
+}
 
-																																																													}
 
-																																																													
 
-																																																													function reloadi3() {
-																																																														i3-msg reload
-																																																														i3-msg restart
-																																																													}
+function reloadi3() {
+killall polybar
+i3-msg reload
+i3-msg restart
+}
 
 # export PS1="\[$(tput setaf 1)\][\[$(tput setaf 2)\]\A\[$(tput setaf 1)\]]\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\u\[$(tput setaf 1)\]]\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\h\[$(tput setaf 1)\]]\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\W\[$(tput setaf 1)\]]\[$(tput sgr0)\] \`parse_git_branch\` \n  ____________________________\[$reset\]\n\[$green\] > \[$black\]"
 
- export PS1="\[\e[35m\]\u\[\e[m\]\[\e[31;40m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]\[\e[31;40m\]\\$\[\e[m\]\W\[\e[30;47m\]\`parse_git_branch\`\[\e[m\]- "
+ export PS1="┌──\[\e[35m\]\u\[\e[m\]\[\e[31;40m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]\[\e[31;40m\]\\$\[\e[m\]\W\[\e[30;47m\]\`parse_git_branch\`\[\e[m\]\n└─╼ "
 
 set -o vi
 alias c='clear'
 alias aa="ranger"
-alias update="sudo apt update"
+alias update="sudo pacman -Syu"
 alias upgrade="sudo apt upgrade"
 alias install="sudo apt install -y"
 alias ..='cd ..'
@@ -395,7 +384,9 @@ alias bashrc='vim ~/.bashrc'
 alias bashpro='vim ~/.bash_profile'
 alias rpro='vim ~/.Rprofile'
 alias e='exit'
-alias pipes='pipes.sh -p 10 -s 5 -R'
+alias pipes='pipes -p 10 -s 5 -R'
+alias music='ncmpcpp'
+alias fontlists='fc-list | col | sort'
 
 alias untar='tar -zxvf'
 
@@ -404,3 +395,16 @@ alias server='python -m SimpleHTTPServer &'
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 alias vm="/usr/local/Cellar/vim/8.0.1400_4/bin/vim"
+alias start_portainer="docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer"
+
+export EDITOR='vim'
+export VISUAL='vim'
+
+
+(cat ~/.cache/wal/sequences &)
+
+# Alternative (blocks terminal for 0-3ms)
+cat ~/.cache/wal/sequences
+
+# To add support for TTYs this line can be optionally added.
+source ~/.cache/wal/colors-tty.sh

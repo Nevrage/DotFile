@@ -148,6 +148,7 @@ exec_always --no-startup-id feh --bg-scale $(cat ~/.cache/wal/wal)
 exec_always --no-startup-id  xrdb ~/.Xdefaults
 # exec_always --no-startup-id  xrdb -merge ~/.cache/wal/colors.Xresources 
 exec_always --no-startup-id mpd
+exec_always --no-startup-id /opt/urserver/urserver
 
 gaps inner 10
 gaps outer 10
@@ -171,3 +172,21 @@ bindsym $mod+Ctrl+Shift+Up resize grow height 10 px or 10 ppt
 bindsym $mod+Ctrl+Shift+Down resize shrink height 10 px or 10 ppt
 bindsym $mod+Ctrl+Shift+Left resize grow width 10 px or 10 ppt
 
+
+
+# client.focused           $black $black $black $black $black
+# client.focused_inaticve  $black $black $black $black 
+# client.urgent            $black $black $black $black $black
+# client.placeholder       $black $black $black $black $black
+# client.background        $black 
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg

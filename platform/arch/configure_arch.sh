@@ -4,11 +4,18 @@
 
 sudo pacman -Syu
 
-sudo pacman -Sy xorg xorg-xinit firefox git python-pip vim ranger tmux neofetch R gcc-fortran rofi feh htop pulseaudio alsa-utils transmission-cli mpv mupdf dunst compton  gparted docker net-tools nerd-fonts-complete pandoc texlive-most cava mutt beep scrot openssh ncmpcpp mpd mpc tk gdal zsnes #libreoffice terminator mariadb
+sudo pacman -Sy xorg xorg-xinit firefox git python-pip vim ranger tmux neofetch R gcc-fortran rofi feh htop pulseaudio alsa-utils transmission-cli mpv mupdf dunst compton  gparted docker net-tools nerd-fonts-complete pandoc texlive-most cava mutt beep scrot openssh ncmpcpp mpd mpc tk gdal zsnes gdal proj geos #libreoffice terminator mariadb
 
-sudo pip3 install jedi rice rtv rice hangups stig wal-steam bpython ptpython jupyterlab pirate-get pandas numpy matplotlib
+sudo pip3 install jedi rice rtv rice hangups stig wal-steam bpython ptpython jupyterlab pirate-get pandas numpy matplotlib 
 
 jupyter labextension install @jupyterlab/google-drive
+
+echo "[archlinuxfr]" >> /etc/pacman.conf
+echo "SigLevel=Never" >> /etc/pacman.conf
+echo "Server=http://repo.archlinux.fr/$arch" >> /etc/pacman.conf
+sudo pacman -Sy yaourt
+yaourt -S dropbox steam-fonts polybar-git bash-pipes ncmatrix cli-visualizer multimc5 i3-gaps zathura-pdf-poppler cool-retro-term unified-remote-server openspades jq-git udunits v8
+
 
 R <<EOF
 options("http://cran.us.r-project.org")
@@ -21,19 +28,13 @@ install.packages("devtools")
 devtools::install_github('IRkernel/IRkernel')
 IRkernel::installspec(name = 'ir34', displayname = 'R 3.4.4')
 devtools::install_github("jalvesaq/colorout")
+install.packages("sf")
 EOF
-
-
-echo "[archlinuxfr]" >> /etc/pacman.conf
-echo "SigLevel=Never" >> /etc/pacman.conf
-echo "Server=http://repo.archlinux.fr/$arch" >> /etc/pacman.conf
-sudo pacman -Sy yaourt
-yaourt -S dropbox steam-fonts polybar-git bash-pipes ncmatrix cli-visualizer multimc5 i3-gaps zathura-pdf-poppler cool-retro-term unified-remote-server openspades
 
 cd
 git clone https://github.com/Nevrage/DotFile.git 
 
-
+# execute export.sh
 
 
 source ~/.bashrc

@@ -6,4 +6,15 @@ Xterm*Bell: false
 
 URxvt.font:xft: DejaVuSansMono Nerd Font
 
-
+rofi.width: 75
+rofi.lines: 20
+rofi.columns: 1
+rofi.font: Noto Sans 14
+rofi.bw: 0
+rofi.padding: 200
+rofi.eh: 1
+rofi.separator-style: soli
+rofi.hide-scrollbar: true
+rofi.fullscreen: false
+rofi.fake-transparency: true
+rofi.show-icons: false

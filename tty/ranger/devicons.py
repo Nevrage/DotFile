@@ -10,6 +10,9 @@ import os;
 # My advice is to use NerdFonts which can be found here:
 # https://github.com/ryanoasis/nerd-fonts
 file_node_extensions = {
+    'smc'      :'',
+    'R'        :'',
+    'r'        :'',
     'styl'     : '',
     'scss'     : '',
     'htm'      : '',
@@ -184,6 +187,7 @@ file_node_exact_matches = {
     'gulpfile.js'                      : '',
     'gulpfile.ls'                      : '',
     'dropbox'                          : '',
+    'github'                           : '',
     '.ds_store'                        : '',
     '.gitconfig'                       : '',
     '.gitignore'                       : '',

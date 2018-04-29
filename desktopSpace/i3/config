@@ -10,6 +10,14 @@ bindsym $mod+Shift+q kill
 
 # bindsym $mod+d exec dmenu_run
 
+bindsym $mod+p exec ~/github/mpd_control/toggleplaypause
+bindsym $mod+n exec mpc next
+bindsym $mod+plus  exec --no-startup-id mpc volume +5
+bindsym $mod+minus exec --no-startup-id mpc volume -5
+
+bindsym $mod+Shift+p exec mpc prev
+bindsym $mod+Shift+r exec mpc random
+
 # change focus
 #bindsym $mod+h focus left
 bindsym $mod+k focus down
@@ -45,11 +53,12 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+# bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
+
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -100,7 +109,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # reload the configuration file
 # bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+# bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -138,6 +147,8 @@ bindsym $mod+g exec firefox
 bindsym $mod+Shift+g exec firefox -private-window
 bindsym $mod+d exec --no-startup-id rofi -l -show run -theme ~/.cache/wal/colors-rofi-dark.rasi 
 bindsym $mod+Shift+d exec --no-startup-id rofi -show window -theme ~/.cache/wal/colors-rofi-dark.rasi 
+bindsym $mod+shift+s exec --no-startup-id echo "" | rofi -dmenu -p "Search:" | xargs -I{} xdg-open https://www.google.de/search?q={}
+bindsym $mod+w exec --no-startup-id ~/github/buku_run/buku_run
 bindsym $mod+Shift+z exec i3lock-fancy
 
 exec_always --no-startup-id transmission-daemon &
@@ -152,7 +163,7 @@ exec_always --no-startup-id /opt/urserver/urserver
 
 gaps inner 10
 gaps outer 10
-new_window 1pixel
+new_window none
 # window_border 0
 for_window [class="mpv"] floating enable
 
@@ -190,3 +201,5 @@ client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 client.background       $bg
+
+

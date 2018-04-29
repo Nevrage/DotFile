@@ -15,7 +15,7 @@ cp ~/.vimrc ~/DotFile/tty/vimrc
 cp ~/.yaourtrc ~/DotFile/tty/yaourtrc
 
 cp ~/.config/i3/* ~/DotFile/desktopSpace/i3/
-cp -r ~/.config/qutebrowser/* ~/DotFile/desktopSpace/qutebrowser/
+# cp -r ~/.config/qutebrowser/* ~/DotFile/desktopSpace/qutebrowser/
 cp  ~/.config/compton.conf ~/DotFile/desktopSpace/compton.conf
 cp ~/.config/polybar/config ~/DotFile/desktopSpace/polybar.config
 cp ~/.config/rofi/config ~/DotFile/desktopSpace/rofi.config

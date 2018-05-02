@@ -14,8 +14,10 @@ cp ~/.config/transmission-daemon/settings.json ~/DotFile/tty/transmission.settin
 cp ~/.vimrc ~/DotFile/tty/vimrc
 cp ~/.yaourtrc ~/DotFile/tty/yaourtrc
 
+cp ~/.config/qutebrowser/config.py ~/DotFile/desktopSpace/qutebrowser/config.py
+cp ~/.config/qutebrowser/keys.conf  ~/DotFile/desktopSpace/qutebrowser/keys.conf
+cp ~/.config/qutebrowser/autoconfig.yml ~/DotFile/desktopSpace/qutebrowser/autoconfigs.yaml
 cp ~/.config/i3/* ~/DotFile/desktopSpace/i3/
-# cp -r ~/.config/qutebrowser/* ~/DotFile/desktopSpace/qutebrowser/
 cp  ~/.config/compton.conf ~/DotFile/desktopSpace/compton.conf
 cp ~/.config/polybar/config ~/DotFile/desktopSpace/polybar.config
 cp ~/.config/rofi/config ~/DotFile/desktopSpace/rofi.config

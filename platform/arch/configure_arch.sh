@@ -12,7 +12,7 @@ jupyter labextension install @jupyterlab/google-drive
 
 echo "[archlinuxfr]" >> /etc/pacman.conf
 echo "SigLevel=Never" >> /etc/pacman.conf
-echo "Server=http://repo.archlinux.fr/$arch" >> /etc/pacman.conf
+echo "Server=http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
 sudo pacman -Sy yaourt
 yaourt -S dropbox steam-fonts polybar-git bash-pipes ncmatrix cli-visualizer multimc5 i3-gaps zathura-pdf-poppler cool-retro-term unified-remote-server openspades jq-git udunits v8 #dofus
 

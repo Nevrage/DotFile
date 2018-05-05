@@ -13,6 +13,7 @@ cp ~/.config/rtv/rtv.cfg ~/DotFile/tty/rtv.cfg
 cp ~/.config/transmission-daemon/settings.json ~/DotFile/tty/transmission.settings.json
 cp ~/.vimrc ~/DotFile/tty/vimrc
 cp ~/.yaourtrc ~/DotFile/tty/yaourtrc
+cp ~/.config/cava/config ~/DotFile/tty/cava.config
 
 cp ~/.config/qutebrowser/config.py ~/DotFile/desktopSpace/qutebrowser/config.py
 cp ~/.config/qutebrowser/keys.conf  ~/DotFile/desktopSpace/qutebrowser/keys.conf

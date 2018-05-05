@@ -160,7 +160,7 @@ exec_always --no-startup-id  xrdb ~/.Xdefaults
 exec_always --no-startup-id mpd
 exec_always --no-startup-id /opt/urserver/urserver
 
-gaps inner 10
+gaps inner 15
 gaps outer 10
 new_window none
 # window_border 0

@@ -345,7 +345,7 @@ c.content.ssl_strict = 'ask'
 
 # List of user stylesheet filenames to use.
 # Type: List of File, or File
-c.content.user_stylesheets = '~/style.css'
+c.content.user_stylesheets = 'style.css'
 
 # Enable WebGL.
 # Type: Bool

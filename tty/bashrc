@@ -351,6 +351,7 @@ fi
 
 function reloadi3() {
 killall polybar
+xrdb -merge ~/.cache/wal/colors.Xresources
 i3-msg reload
 i3-msg restart
 }

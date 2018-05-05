@@ -49,3 +49,18 @@ rm(makecolors)
 
 cc()
 cc()
+
+
+#options(continue="+")
+options(htmlhelp=TRUE)
+# options(tab.width = 2)
+# options(width = 130)
+# options(graphics.record=TRUE) 
+
+.First  <- function(){
+
+}
+
+.Last  <- function(){
+
+}

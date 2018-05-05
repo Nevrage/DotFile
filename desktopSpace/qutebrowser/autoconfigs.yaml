@@ -3,6 +3,11 @@
 
 config_version: 2
 settings:
+  aliases:
+    global:
+      q: quit
+      w: session-save
+      wq: quit --save
   bindings.commands:
     global:
       caret:
@@ -202,6 +207,8 @@ settings:
         tt: spawn mpv {url}
         u: scroll-page 0 -0.5
         v: enter-mode caret
+        w: set ui user-stylesheet "~/github/solarized-everything-css/css/solarized-all-sites-dark.css";;
+          reload
         wB: set-cmd-text -s :bookmark-load -w
         wO: set-cmd-text :open -w {url:pretty}
         wP: open -w -- {primary}
@@ -251,3 +258,9 @@ settings:
         y: prompt-accept yes
       register:
         <Escape>: leave-mode
+  completion.min_chars:
+    global: 1
+  content.user_stylesheets:
+    global: ~/style.css
+  content.webgl:
+    global: true

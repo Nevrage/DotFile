@@ -155,8 +155,8 @@ exec_always --no-startup-id transmission-daemon &
 exec_always --no-startup-id polybar example &
 exec_always --no-startup-id dropbox 
 exec_always --no-startup-id feh --bg-scale $(cat ~/.cache/wal/wal)
-exec_always --no-startup-id  xrdb ~/.Xdefaults
-# exec_always --no-startup-id  xrdb -merge ~/.cache/wal/colors.Xresources 
+exec_always --no-startup-id  xrdb -merge ~/.Xdefaults
+exec_always --no-startup-id  xrdb -merge ~/.cache/wal/colors.Xresources 
 exec_always --no-startup-id mpd
 exec_always --no-startup-id /opt/urserver/urserver
 

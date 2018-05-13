@@ -64,3 +64,5 @@ options(htmlhelp=TRUE)
 .Last  <- function(){
 
 }
+
+# add if interactive to fix some of the issues while isntalling new packages

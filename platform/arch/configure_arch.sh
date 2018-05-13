@@ -4,7 +4,7 @@
 
 sudo pacman -Syu
 
-sudo pacman -Sy xorg xorg-xinit firefox git python-pip vim ranger tmux neofetch R gcc-fortran rofi feh htop pulseaudio alsa-utils transmission-cli mpv mupdf dunst compton  gparted docker net-tools nerd-fonts-complete pandoc texlive-most cava mutt beep scrot openssh ncmpcpp mpd mpc tk gdal zsnes gdal proj geos #libreoffice terminator mariadb
+sudo pacman -Sy xorg xorg-xinit firefox git python-pip vim ranger tmux neofetch R gcc-fortran rofi feh htop pulseaudio alsa-utils transmission-cli mpv mupdf dunst compton  gparted docker net-tools nerd-fonts-complete pandoc texlive-most cava mutt beep scrot openssh ncmpcpp mpd mpc tk gdal zsnes gdal proj geos  lib32-gconf #libreoffice terminator mariadb
 
 sudo pip3 install jedi rice rtv rice hangups stig wal-steam bpython ptpython jupyterlab pirate-get pandas numpy matplotlib 
 

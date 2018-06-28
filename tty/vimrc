@@ -39,6 +39,7 @@ Plugin 'jimhester/lintr.git'
 Plugin 'vim-pandoc/vim-rmarkdown'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'stevearc/vim-arduino'
+Plugin 'freitass/todo.txt-vim'
 
 " Plugin 'ujihisa/repl.vim'
 " Plugin 'pangloss/vim-javascript'

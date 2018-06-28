@@ -410,3 +410,13 @@ cat ~/.cache/wal/sequences
 # To add support for TTYs this line can be optionally added.
 source ~/.cache/wal/colors-tty.sh
 alias neofetch="neofetch --w3m"
+
+
+alias todd="todd ~/Dropbox/todo/todo.txt"
+alias dlytmp3="youtube-dl --extract-audio --audio-format mp3"
+PATH="$HOME/bin:$PATH"
+
+alias ww="ranger --cmd=tmsu_init"
+alias s="extended_ls"
+alias etd="v ~/Dropbox/todo/todo.txt" 
+alias insta="export PATH=$PATH:$(pwd)"

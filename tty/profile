@@ -1,1 +1,2 @@
+mount /home/ylan/dyn
 jupyter lab  --NotebookApp.token=  & 

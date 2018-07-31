@@ -4,9 +4,13 @@
 
 sudo pacman -Syu
 
-sudo pacman -Sy xorg xorg-xinit firefox git python-pip vim ranger tmux neofetch R gcc-fortran rofi feh htop pulseaudio alsa-utils transmission-cli mpv mupdf dunst compton  gparted docker net-tools nerd-fonts-complete pandoc texlive-most cava mutt beep scrot openssh ncmpcpp mpd mpc tk gdal zsnes gdal proj geos  lib32-gconf qutebrowser #libreoffice terminator mariadb
+sudo pacman -Sy xorg xorg-xinit firefox git python-pip vim ranger tmux neofetch R gcc-fortran rofi feh htop pulseaudio alsa-utils transmission-cli mpv mupdf dunst compton  gparted docker net-tools nerd-fonts-complete pandoc texlive-most cava mutt beep scrot openssh ncmpcpp mpd mpc tk gdal zsnes gdal proj geos  lib32-gconf qutebrowser ack #libreoffice terminator mariadb
 
-sudo pip3 install jedi rice rtv rice hangups stig wal-steam bpython ptpython jupyterlab pirate-get pandas numpy matplotlib 
+# Potentially add t he following:
+# arduino blender calcurse cups dosbox dosfstools dunst fish gimp glxosd google-drive-ocamlfuse htop-vim-git nmap noto-fonts-git npm ntfs-3g oni p7zip pacutils peco python-eyed3 python-igraph quicklisp radeontop rofi-greenclip rsync samba sbcl scrot sshfs tmsu todotxt-git tremc-git uswsusp-git w3m wget wine-staging xbindkeys xclip xdotool xsel ympd-git zsnes 
+
+
+sudo pip3 install jedi rice rtv rice hangups stig  pywal wal-steam bpython ptpython jupyterlab pirate-get pandas numpy matplotlib todotxt-machine rtichoke menu4rofi buku #terminatables and jupyetr stuff 
 
 jupyter labextension install @jupyterlab/google-drive
 

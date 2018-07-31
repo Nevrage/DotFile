@@ -26,4 +26,4 @@ cp ~/.xbindkeysrc ~/DotFile/desktopSpace/xbindkeysrc
 cp ~/.config/terminator/config ~/DotFile/desktopSpace/terminator
 cp ~/.Xdefaults ~/DotFile/desktopSpace/Xdefaults
 cp ~/.xinitrc ~/DotFile/desktopSpace/xinitrc
-cp ~/.config/zathura/zathurarc ~/DotFile/desktopSpace/zathurarc
+# cp ~/.config/zathura/zathurarc ~/DotFile/desktopSpace/zathurarc

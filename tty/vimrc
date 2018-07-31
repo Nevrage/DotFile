@@ -210,7 +210,7 @@ map <C-S> :SyntasticToggleMode<CR>
 
 set shortmess=I " Read :help shortmess for everything else.
 let R_start_libs = 'base, stats, graphics, grDevices, utils, methods, tidyverse'
-
+let R_pdfviewer = "mupdf"
 
 let R_csv_app = 'terminal:scim'
 let R_csv_delim = ','

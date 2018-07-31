@@ -84,11 +84,6 @@ c.backend = 'webengine'
 # Type: List of String
 c.qt.args = []
 
-# Force software rendering for QtWebEngine. This is needed for
-# QtWebEngine to work with Nouveau drivers.
-# Type: Bool
-c.qt.force_software_rendering = True
-
 # Force a Qt platform to use. This sets the `QT_QPA_PLATFORM`
 # environment variable and is useful to force using the XCB plugin when
 # running QtWebEngine on Wayland.
@@ -131,7 +126,7 @@ c.content.cache.appcache = True
 # Valid values:
 #   - all: Accept all cookies.
 #   - no-3rdparty: Accept cookies from the same origin only.
-#   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain.
+#   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain. On QtWebEngine, this is the same as no-3rdparty.
 #   - never: Don't accept cookies at all.
 c.content.cookies.accept = 'no-3rdparty'
 
@@ -144,13 +139,6 @@ c.content.cookies.store = True
 # describing an encoding such as _utf-8_, _iso-8859-1_, etc.
 # Type: String
 c.content.default_encoding = 'iso-8859-1'
-
-# Enable extra tools for Web developers. This needs to be enabled for
-# `:inspector` to work and also adds an _Inspect_ entry to the context
-# menu. For QtWebEngine, see `--enable-webengine-inspector` in
-# `qutebrowser --help` instead.
-# Type: Bool
-c.content.developer_extras = False
 
 # Try to pre-fetch DNS entries to speed up browsing.
 # Type: Bool
@@ -169,7 +157,8 @@ c.content.frame_flattening = False
 #   - ask
 c.content.geolocation = 'ask'
 
-# Value to send in the `Accept-Language` header.
+# Value to send in the `Accept-Language` header. Note that the value
+# read from JavaScript is always the global value.
 # Type: String
 c.content.headers.accept_language = 'en-US,en'
 
@@ -192,7 +181,8 @@ c.content.headers.do_not_track = True
 #   - same-domain: Only send the Referer for the same domain. This will still protect your privacy, but shouldn't break any sites.
 c.content.headers.referer = 'same-domain'
 
-# User agent to send. Unset to send the default.
+# User agent to send. Unset to send the default. Note that the value
+# read from JavaScript is always the global value.
 # Type: String
 c.content.headers.user_agent = None
 
@@ -684,10 +674,6 @@ c.tabs.close_mouse_button = 'middle'
 # Type: Float
 c.tabs.favicons.scale = 1.0
 
-# Show favicons in the tab bar.
-# Type: Bool
-c.tabs.favicons.show = True
-
 # How to behave when the last tab is closed.
 # Type: String
 # Valid values:
@@ -776,7 +762,8 @@ c.tabs.title.alignment = 'left'
 # `{host}`: Host of the current web page. * `{backend}`: Either
 # ''webkit'' or ''webengine'' * `{private}`: Indicates when private mode
 # is enabled. * `{current_url}`: URL of the current web page. *
-# `{protocol}`: Protocol (http/https/...) of the current web page.
+# `{protocol}`: Protocol (http/https/...) of the current web page. *
+# `{audio}`: Indicator for audio/mute status.
 # Type: FormatString
 c.tabs.title.format = '{index}: {title}'
 
@@ -844,10 +831,6 @@ c.url.start_pages = ['~/DotFile/desktopSpace/firefox/wal.html']
 # URL parameters to strip with `:yank url`.
 # Type: List of String
 c.url.yank_ignored_parameters = ['ref', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
-
-# Hide the window decoration when using wayland.
-# Type: Bool
-c.window.hide_wayland_decoration = False
 
 # Format to use for the window title. The same placeholders like for
 # `tabs.title.format` are defined.
@@ -1389,10 +1372,13 @@ config.bind('[[', 'navigate prev')
 config.bind(']]', 'navigate next')
 config.bind('`', 'enter-mode set_mark')
 config.bind('ad', 'download-cancel')
+config.bind('at', 'spawn  bukuAddRofi {url} ')
+config.bind('aut', 'spawn bukuUpdateTag {url}')
 config.bind('b', 'set-cmd-text -s :quickmark-load')
 config.bind('cd', 'download-clear')
 config.bind('co', 'tab-only')
 config.bind('d', 'scroll-page 0 0.5')
+config.bind('eb', 'spawn bukuEdit {url}')
 config.bind('f', 'hint')
 config.bind('g$', 'tab-focus -1')
 config.bind('g0', 'tab-focus 1')

@@ -17,3 +17,7 @@ rofi.hide-scrollbar: true
 rofi.fullscreen: false
 rofi.fake-transparency: true
 rofi.show-icons: false
+
+XTerm.vt100.translations: #override \n\
+    Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>V: insert-selection(CLIPBOARD)

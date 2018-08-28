@@ -71,3 +71,8 @@ cp ~/DotFile/tty/tmux ~/.tmux.conf
 rm -r ~/DotFile
 sudo apt update 
 sudo apt upgrade 
+
+
+wget -O wallpaper.png https://images.pexels.com/photos/1146804/pexels-photo-1146804.jpeg?cs=srgb&dl=4k-wallpaper-cloudy-dark-clouds-1146804.jpg&fm=jpg
+wal -i wallpaper.png 
+wal --theme hybrid-material

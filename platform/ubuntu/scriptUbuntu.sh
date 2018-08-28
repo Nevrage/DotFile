@@ -1,3 +1,7 @@
+#! /bin/bash
+
+
+git clone https://github.com/Nevrage/DotFile.git ~
 # Install stuff 
 sudo apt update 
 sudo apt upgrade 

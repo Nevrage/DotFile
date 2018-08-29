@@ -5,7 +5,7 @@ git clone https://github.com/Nevrage/DotFile.git ~
 # Install stuff 
 sudo apt update 
 sudo apt upgrade 
-sudo apt install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake git ranger qutebrowser xterm python3pip feh xclip xsel xdotools mpv pandoc tmux neofetch r-base r-base-dev libssl-dev cifs-utils openssh-server  htop  evolution evolution-ews libmariadbclient-dev compton 
+sudo apt install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake git ranger qutebrowser xterm python3pip feh xclip xsel xdotools mpv pandoc tmux neofetch r-base r-base-dev libssl-dev cifs-utils openssh-server  htop  evolution evolution-ews libmariadbclient-dev compton i3lock
 sudo pip3 install pywal rice jedi wal-steam  rtichoke  neovim
 sudo apt-get install r-cran-curl r-cran-openssl r-cran-xml2
 
@@ -55,12 +55,23 @@ echo ".libPaths(\"~/R/library\")" >> ~/.Rprofile
 ## todo
 # fix qutebrowser 
 # fix vim (is it really broken?)
+# make GTK theme and 
+## connect to steam 
+
+# Workspaces:
+# emails 
+# chat 
+# scripting, KPI
+# browser 
+# Cellar  and 
+# Drive and file browser 
 
 # Changes in dotfile 
 ## Changes the rice to rtichoke in both the .Rprofile and the vimrc 
 ## changed firefox to qutebrowser in i3 
 ## added that line for connecting to the server :
   ## alias connect="sudo mount -t cifs //monts03/compatibility /media/gamer/compat/ -o username=ylallouche,domain=vmc.com"
+## Changed i3lock-fancy to i3lock in i3
 
 # Copying dotfiles 
 cp ~/DotFile/tty/bashrc ~/.bashrc 
@@ -80,3 +91,6 @@ sudo apt upgrade
 wget -O wallpaper.png https://images.pexels.com/photos/1146804/pexels-photo-1146804.jpeg?cs=srgb&dl=4k-wallpaper-cloudy-dark-clouds-1146804.jpg&fm=jpg
 wal -i wallpaper.png 
 wal --theme hybrid-material
+
+
+

@@ -4,11 +4,13 @@ call vundle#begin()
 Plugin 'seletskiy/vim-pythonx'
 Plugin 'johngrib/Vim-Game-Snake'
 Plugin 'johngrib/vim-game-code-break'
+Plugin 'jalvesaq/vimcmdline'
 Plugin 'kurkale6ka/vim-chess'
 Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'l04m33/vlime', {'rtp': 'vim/'}
 Plugin 'junegunn/limelight.vim'
 Plugin 'junegunn/goyo.vim'
+Plugin 'Shougo/unite.vim'
 Plugin 'spf13/vim-autoclose'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'tex/vimpreviewpandoc'
@@ -25,7 +27,7 @@ Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'airblade/vim-rooter'
-Plugin 'francoiscabrol/ranger.vim'
+" Plugin 'francoiscabrol/ranger.vim'
 Plugin 'airblade/vim-accent'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'vim-scripts/textutil.vim'
@@ -40,6 +42,8 @@ Plugin 'vim-pandoc/vim-rmarkdown'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'stevearc/vim-arduino'
 Plugin 'freitass/todo.txt-vim'
+Plugin 'blindFS/vim-taskwarrior'
+Plugin 'rafaqz/ranger.vim'
 
 " Plugin 'ujihisa/repl.vim'
 " Plugin 'pangloss/vim-javascript'
@@ -174,7 +178,6 @@ let g:syntastic_check_on_wq = 0
 Plugin 'roxma/nvim-completion-manager'
 Plugin 'gaalcaras/ncm-R'
 Plugin 'roxma/vim-hug-neovim-rpc'
-"Plugin 'sirver/UltiSnips'"
 Plugin 'roxma/nvim-yarp'
 if has("unix")
   let s:uname = system("uname -s")
@@ -222,3 +225,34 @@ nnoremap <buffer> <leader>au :ArduinoUpload<CR>
 nnoremap <buffer> <leader>ad :ArduinoUploadAndSerial<CR>
 nnoremap <buffer> <leader>ab :ArduinoChooseBoard<CR>
 nnoremap <buffer> <leader>ap :ArduinoChooseProgrammer<CR>
+
+let cmdline_app           = {}
+let cmdline_external_term_cmd = "xterm -e '%s' &"
+let cmdline_follow_colorscheme = 1
+let cmdline_app['python'] = 'ptpython3'
+
+
+Plugin 'sirver/UltiSnips'"
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+let g:UltiSnipsSnippetsDir='/Users/[user_name]/.vim/mysnippets'
+let g:UltiSnipsSnippetDirectories=["mysnippets"]
+let g:task_rc_override = 'rc.defaultwidth=0'
+
+
+map <leader>rr :RangerEdit<cr>
+map <leader>rv :RangerVSplit<cr>
+map <leader>rs :RangerSplit<cr>
+map <leader>rt :RangerTab<cr>
+map <leader>ri :RangerInsert<cr>
+map <leader>ra :RangerAppend<cr>
+map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@

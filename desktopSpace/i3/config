@@ -17,6 +17,7 @@ bindsym $mod+minus exec --no-startup-id mpc volume -5
 bindsym $mod+x exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 bindsym $mod+Shift+p exec mpc prev
 bindsym $mod+Shift+r exec mpc random
+bindsym $mod+m exec xterm -fs 11 -e neomutt
 
 bindsym $mod+Shift+t exec --no-startup-id theme=$(wal --theme | grep "-" | rofi -dmenu -p "Select theme to apply" | sed 's/-//g') &&  wal --theme $theme 
 bindsym $mod+i exec --no-startup-id ~/Dropbox/Scripts/tagagg.R think &&  cat /tmp/think | rofi -dmenu dmenu

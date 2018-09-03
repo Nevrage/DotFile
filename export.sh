@@ -10,6 +10,7 @@ cp ~/.inputrc ~/DotFile/tty/inputrc
 cp ~/.config/neofetch/config.conf ~/DotFile/tty/neofetch.config.conf
 cp ~/.profile ~/DotFile/tty/profile
 cp ~/.config/rtv/rtv.cfg ~/DotFile/tty/rtv.cfg
+cp ~/.mailcap ~/DotFile/tty/mailcap
 cp ~/.config/transmission-daemon/settings.json ~/DotFile/tty/transmission.settings.json
 cp ~/.vimrc ~/DotFile/tty/vimrc
 cp ~/.yaourtrc ~/DotFile/tty/yaourtrc

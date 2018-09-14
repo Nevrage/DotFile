@@ -91,4 +91,15 @@ wal -i wallpaper.png
 wal --theme hybrid-material
 
 
+# notes 
+# install curl, i3block, i3lock-fancy
+# add on boot davmail and its tmux script 
+# Install the newmail.sh 
+# that offlineimaprc and its permissions 
+# install notmuch libs and mock and alot program
+# the gdrive thingy 
+# install dunst 
+# things about the dbeaver, finch and tasksh
+# snap apps: Rocketchat and skype
+# add shortcuts for those
 

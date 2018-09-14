@@ -1,2 +1,5 @@
-mount /home/ylan/dyn
-jupyter lab  --NotebookApp.token=  & 
+#!/bin/sh
+
+export BROWSER="firefox"
+# mount /home/ylan/dyn
+# jupyter lab  --NotebookApp.token=  & 

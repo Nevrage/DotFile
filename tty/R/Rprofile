@@ -7,8 +7,8 @@ library(grDevices)
 options(prompt = blue("⇨  "))
 options(prompt = blue("─╼ "))
 
-options(rice.editing_mode = "vi",
-        rice.auto_match = TRUE)
+options(rtichoke.editing_mode = "vi",
+        rtichoke.auto_match = TRUE)
 
 
 makecolors <- function() {

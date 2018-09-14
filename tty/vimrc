@@ -44,6 +44,8 @@ Plugin 'stevearc/vim-arduino'
 Plugin 'freitass/todo.txt-vim'
 Plugin 'blindFS/vim-taskwarrior'
 Plugin 'rafaqz/ranger.vim'
+Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'liuchengxu/vim-which-key'
 
 " Plugin 'ujihisa/repl.vim'
 " Plugin 'pangloss/vim-javascript'
@@ -146,9 +148,7 @@ colorscheme wal
 let g:airline_powerline_fonts=1 "Requires powerline fonts!
 
 
-"let R_term = "xterm"
 
-"let R_term_cmd = "terminator -e rice"
 let R_nvim_wd = 1
 syntax on 
 set encoding=utf8
@@ -160,6 +160,7 @@ let vim_markdown_preview_hotkey='<C-m>'
 let vim_markdown_preview_pandoc=1
 
 let maplocalleader = " "
+let mapleader = " "
 let g:syntastic_enable_r_lintr_checker = 1
 let g:syntastic_r_checkers = ['lintr']
 
@@ -199,7 +200,7 @@ let g:airline_powerline_fonts=1
 
 
 
-let R_app = "rice" 
+let R_app = "rtichoke" 
 let R_cmd = "R" 
 let R_hl_term = 0 
 let R_args = []  " if you had set any 
@@ -244,7 +245,7 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-let g:UltiSnipsSnippetsDir='/Users/[user_name]/.vim/mysnippets'
+let g:UltiSnipsSnippetsDir='~/.vim/mysnippets'
 let g:UltiSnipsSnippetDirectories=["mysnippets"]
 let g:task_rc_override = 'rc.defaultwidth=0'
 
@@ -256,3 +257,12 @@ map <leader>rt :RangerTab<cr>
 map <leader>ri :RangerInsert<cr>
 map <leader>ra :RangerAppend<cr>
 map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
+
+if !exists('$TMUX')
+        let cmdline_external_term_cmd = "xterm -e '%s' &"
+endif
+
+
+
+let g:rout_follow_colorscheme = 1
+let g:Rout_more_colors = 1

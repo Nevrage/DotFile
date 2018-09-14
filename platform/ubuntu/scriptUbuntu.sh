@@ -67,8 +67,6 @@ echo ".libPaths(\"~/R/library\")" >> ~/.Rprofile
 # Drive and file browser 
 
 # Changes in dotfile 
-## Changes the rice to rtichoke in both the .Rprofile and the vimrc 
-## changed firefox to qutebrowser in i3 
 ## added that line for connecting to the server :
   ## alias connect="sudo mount -t cifs //monts03/compatibility /media/gamer/compat/ -o username=ylallouche,domain=vmc.com"
 ## Changed i3lock-fancy to i3lock in i3

@@ -1,6 +1,0 @@
-pacman -S sudo vim ranger 
-passwd root 
-# create user 
-# add it to root
-passwd newuser
-# source bashscript from github

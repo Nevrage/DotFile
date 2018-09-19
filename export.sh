@@ -15,6 +15,12 @@ cp ~/.config/transmission-daemon/settings.json ~/DotFile/tty/transmission.settin
 cp ~/.vimrc ~/DotFile/tty/vimrc
 cp ~/.yaourtrc ~/DotFile/tty/yaourtrc
 cp ~/.config/cava/config ~/DotFile/tty/cava.config
+cp ~/.taskrc ~/DotFile/tty/taskrc
+cp ~/.notmuch-config ~/DotFile/tty/notmuch-config
+cp -r ~/.mutt ~/DotFile/tty/mutt
+cp ~/.davmail.properties  ~/DotFile/tty/davmail.properties
+# cp ~/.offlineimaprc ~/DotFile/tty/offlineimaprc
+# cp ~/.msmtprc ~/DotFile/tty/msmtprc
 
 cp ~/.config/qutebrowser/config.py ~/DotFile/desktopSpace/qutebrowser/config.py
 cp ~/.config/qutebrowser/keys.conf  ~/DotFile/desktopSpace/qutebrowser/keys.conf
@@ -29,5 +35,3 @@ cp ~/.Xdefaults ~/DotFile/desktopSpace/Xdefaults
 cp ~/.xinitrc ~/DotFile/desktopSpace/xinitrc
 # cp ~/.config/zathura/zathurarc ~/DotFile/desktopSpace/zathurarc
 
-# neomutt folder offlineimap smtp notmuch davmail 
-# taskrc and .pem files 

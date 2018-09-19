@@ -46,7 +46,7 @@ Plugin 'blindFS/vim-taskwarrior'
 Plugin 'rafaqz/ranger.vim'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'liuchengxu/vim-which-key'
-
+Plugin 'terryma/vim-multiple-cursors'
 " Plugin 'ujihisa/repl.vim'
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'Shougo/vimshell.vim'
@@ -264,5 +264,16 @@ endif
 
 
 
+if $TMUX != ''
+    let R_source = '~/.vim/bundle/Nvim-R/R/tmux_split.vim'
+    let R_csv_app = 'tmux new-window scim --txtdelim="\t"'
+endif
+
+
 let g:rout_follow_colorscheme = 1
 let g:Rout_more_colors = 1
+
+noremap Q !!$SHELL <CR>
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
+let R_assign = 0 

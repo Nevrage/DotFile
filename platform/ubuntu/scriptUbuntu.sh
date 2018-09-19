@@ -1,15 +1,15 @@
 #! /bin/bash
 
 
-git clone https://github.com/Nevrage/DotFile.git ~
 # Install stuff 
 sudo apt update 
 sudo apt upgrade 
-sudo apt install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake git ranger qutebrowser xterm python3pip feh xclip xsel xdotools mpv pandoc tmux neofetch r-base r-base-dev libssl-dev cifs-utils openssh-server  htop  evolution evolution-ews libmariadbclient-dev compton i3lock
+sudo apt install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake git ranger qutebrowser xterm python3pip feh xclip xsel xdotools mpv pandoc tmux neofetch r-base r-base-dev libssl-dev cifs-utils openssh-server  htop  evolution evolution-ews libmariadbclient-dev compton i3lock libssl-dev net-tools
 sudo pip3 install pywal rice jedi wal-steam  rtichoke  neovim
 sudo apt-get install r-cran-curl r-cran-openssl r-cran-xml2
 
 # pull the dotfiles now 
+git clone https://github.com/Nevrage/DotFile.git ~
 
 # i3-gaps
 cd /tmp
@@ -102,4 +102,4 @@ wal --theme hybrid-material
 # things about the dbeaver, finch and tasksh
 # snap apps: Rocketchat and skype
 # add shortcuts for those
-
+# mount shared drive as reg user 

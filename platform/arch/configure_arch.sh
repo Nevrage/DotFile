@@ -66,3 +66,6 @@ git clone https://github.com/alexanderjeurissen/ranger_devicons.git
 cd ranger_devicons 
 make install
 cd ..
+
+# replace the placeholder variable with user input value:
+# sed -i "s/wiki_host/${host_name}/g" /root/bin/sync

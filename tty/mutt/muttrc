@@ -20,6 +20,7 @@ set header_cache=~/.mutt/cache/headers
 set trash='+kws/Trash'
 set message_cachedir=~/.mutt/cache/bodies
 
+##SMTP,For Sent mail
 
 #set envelope_from=yes
 my_hdr From: "yallouche@keywordsstudios.com"

@@ -21,6 +21,7 @@ cp -r ~/.mutt ~/DotFile/tty/mutt
 cp ~/.davmail.properties  ~/DotFile/tty/davmail.properties
 # cp ~/.offlineimaprc ~/DotFile/tty/offlineimaprc
 # cp ~/.msmtprc ~/DotFile/tty/msmtprc
+cp ~/.config/pirate-get ~/DotFile/tty/pirate-get
 
 cp ~/.config/qutebrowser/config.py ~/DotFile/desktopSpace/qutebrowser/config.py
 cp ~/.config/qutebrowser/keys.conf  ~/DotFile/desktopSpace/qutebrowser/keys.conf

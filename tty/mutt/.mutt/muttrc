@@ -13,13 +13,8 @@ set include = yes
 set fast_reply =yes 
 set sleep_time = 0 
 
-# set spoolfile="imap://yallouche@keywordsstudios.com:prEch4jones$@127.0.0.1:1143/Inbox"
-# set folder="imap://yallouche@keywordsstudios.com:prEch4jones$@127.0.0.1:1143"
 set from="yallouche@keywordsstudios.com"
 set realname='Ylan Allouche'
-# set trash="imap://yallouche@keywordsstudios.com:prEch4jones$@127.0.0.1:1143/Trash"
-# set imap_user="yallouche@keywordsstudios.com"
-# set imap_pass="prEch4jones$"
 # set imap_keepalive=900   # Set lower if connection times out
 set header_cache=~/.mutt/cache/headers
 set trash='+kws/Trash'

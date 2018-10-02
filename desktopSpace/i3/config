@@ -12,8 +12,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+y exec ~/github/yt.sh
 bindsym $mod+p exec ~/github/mpd_control/toggleplaypause
 bindsym $mod+n exec mpc next
-bindsym $mod+plus  exec --no-startup-id mpc volume +5
-bindsym $mod+minus exec --no-startup-id mpc volume -5
+bindsym $mod+plus  exec --no-startup-id mpc volume +5 && notify-send "mpd volume: $(mpc | head -n 2 | tail -n 1 | awk {'print $4'})"
+bindsym $mod+minus exec --no-startup-id mpc volume -5 && notify-send "mpd volume: $(mpc | head -n 2 | tail -n 1 | awk {'print $4'})"
 bindsym $mod+x exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 bindsym $mod+Shift+p exec mpc prev
 bindsym $mod+Shift+r exec mpc random

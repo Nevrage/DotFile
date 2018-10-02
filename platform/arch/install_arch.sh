@@ -4,7 +4,7 @@
 # OR 
 
 # pacman -Sy curl 
-    ## And source <(curl -s https://bit.ly/2ONM7Ds)
+    ## And source <(culr url.of/script)
 
 # ====================
 
@@ -62,21 +62,15 @@ ln /usr/share/zoneinfo/America/Montreal /etc/localtime
 pacman -S --noconfirm grub 
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
-echo -e "newuser () { \n useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner -s /bin/bash $1 \n }" >> ~/.bashrc
-echo "%wheel      ALL=(ALL) ALL" >> /etc/sudoers
+echo -e "newuser () { \n useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner -s /bin/bash \$1 \n }" >> ~/.bashrc
+echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 echo "root:root" | chpasswd
-pacman -S --noconfirm openssh
+pacman -S --noconfirm openssh net-tools
+echo -e "\nPermitRootLogin yes\n" >> /etc/ssh/sshd_config
 systemctl enable sshd
 systemctl start sshd
-git clone https://aur.archlinux.org/package-query.git
-cd package-query
-makepkg -si
-cd ..
-git clone https://aur.archlinux.org/yaourt.git
-cd yaourt
-makepkg -si
-cd ..
-echo -e "\n [multilib] \n Include = /etc/pacman.d/mirrorlist \n "
-pacman -Syu
+
+
 EOF
+
 

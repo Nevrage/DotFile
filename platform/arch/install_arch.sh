@@ -1,5 +1,15 @@
+# passwd && yes | pacman -Sy openssh && systemctl start sshd
+    ## coconnect through ssh and paste this file
+
+# OR 
+
+# pacman -Sy curl 
+    ## And source <(curl -s https://bit.ly/2ONM7Ds)
+
+# ====================
+
 timedatectl set-ntp true
-##### add: ask for variable: drive and user name 
+##### to add: ask for the name of the drive
 sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/sda
   o # clear the in memory partition table
   n # new partition
@@ -37,20 +47,36 @@ mount /dev/sda1 /mnt/boot
 mount /dev/sda4 /mnt/home
 pacstrap /mnt base base-devel vim ranger 
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt
-pacman -S networkmanager
+
+cat << EOF | arch-chroot /mnt /bin/bash
+
+
+pacman -S --noconfirm networkmanager git curl
 systemctl enable NetworkManager
-passwd
 echo "en_US.UTF-8 UTF-8  " >> /etc/locale.gen
 echo "en_US ISO-8859-1  " >> /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
+rm /etc/localtime
 ln /usr/share/zoneinfo/America/Montreal /etc/localtime
-pacman -S grub
+pacman -S --noconfirm grub 
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
-useradd -m -g users -G audio,lp,optical,storage,video, wheel, games, power, scanner -s /bin/bash ylan
+echo -e "newuser () { \n useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner -s /bin/bash $1 \n }" >> ~/.bashrc
+echo "%wheel      ALL=(ALL) ALL" >> /etc/sudoers
+echo "root:root" | chpasswd
+pacman -S --noconfirm openssh
+systemctl enable sshd
+systemctl start sshd
+git clone https://aur.archlinux.org/package-query.git
+cd package-query
+makepkg -si
+cd ..
+git clone https://aur.archlinux.org/yaourt.git
+cd yaourt
+makepkg -si
+cd ..
+echo -e "\n [multilib] \n Include = /etc/pacman.d/mirrorlist \n "
+pacman -Syu
+EOF
 
-# add the no password needed bit 
-echo "%wheel      ALL=(ALL) ALL" >> etc/sudoers
-passwd ylan

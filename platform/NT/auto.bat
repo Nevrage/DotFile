@@ -76,3 +76,8 @@ sudo mount.vboxsf -o uid=1000,gid=1000,convertcp=iso8859-1 sharefolder /mount/po
 
 
 taff rprofile around windows flow for work
+
+
+steps and variable
+content BM (ff then at work?) chrome and then start doing some AHK and windows
+repro script 

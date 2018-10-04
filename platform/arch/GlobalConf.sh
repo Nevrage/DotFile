@@ -20,6 +20,16 @@ echo -e "\n [multilib] \n Include = /etc/pacman.d/mirrorlist \n "
 pacman -Sy
 
 
+cd /tmp
+git clone https://aur.archlinux.org/mingetty.git 
+cd mingetty 
+makepkg -si
+cd
+mkdir /etc/systemd/system/getty@tty1.service.d/
+echo "[Service]\nExecStart=\nExecStart=-/usr/bin/agetty --autologin $user--noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d/override.conf
+
+# then auto startx + i3lockon on config 
+
 # # Different states 
 # * ready to go 
 # * ready to go for me 

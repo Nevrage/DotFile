@@ -1,5 +1,5 @@
 # passwd && yes | pacman -Sy openssh && systemctl start sshd
-    ## coconnect through ssh and paste this file
+    ## connect through ssh and paste this file
 
 # OR 
 
@@ -7,7 +7,8 @@
     ## And source <(culr url.of/script)
 
 # ====================
-
+## ask for usernames, passwords, drive, scope of installation: basic, server, workwstation, home
+## erase disk properly
 timedatectl set-ntp true
 ##### to add: ask for the name of the drive
 sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/sda

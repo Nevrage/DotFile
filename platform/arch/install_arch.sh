@@ -1,16 +1,22 @@
-# passwd && yes | pacman -Sy openssh && systemctl start sshd
+# passwd && yes | pacman -Sy openssh net-tools && systemctl start sshd && ifconfig | 192
     ## connect through ssh and paste this file
-
 # OR 
-
 # pacman -Sy curl 
     ## And source <(culr url.of/script)
-
 # ====================
+
+
 ## ask for usernames, passwords, drive, hostname, scope of installation: basic, server, workwstation, home
 
+echo "
+export username=user_var
+export pwd=pwd_var
+export rpw=rpw_var
+export drive=drive_var
+export host=host_var
+export scope=scope_var"
 
-
+# sed -i "s/wiki_host/${host_name}/g" /root/bin/sync
 
 ## erase disk properly
 timedatectl set-ntp true
@@ -94,6 +100,7 @@ echo "root|$rpwd" | chpasswd
 pacman -Syu
 userdel -r admin
 echo $HOST > /etc/hostname
+# remove the line with the passwords
 exit
 EOF
 umount -r /mnt

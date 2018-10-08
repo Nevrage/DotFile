@@ -5,8 +5,7 @@ newuser $user
 echo "$user|$pwd" | chpasswd
 echo "root|$rpwd" | chpasswd
 
-
-# install yaourt 
+cd /tmp
 git clone https://aur.archlinux.org/package-query.git
 cd package-query
 makepkg -si

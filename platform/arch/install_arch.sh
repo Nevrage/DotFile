@@ -181,14 +181,14 @@ fi
 scope_graph='workstation home'
 if [[ $scope == *"scope_server"* ]]; then
   # different .profile from here 
-  pacman -S xorg xorg-init
-  yaourt -S i3-gaps
+  pacman -S xorg xorg-init xterm
+  yaourt -S i3-gaps #terminalizer
 fi
 
 
 if [ $scope = "home" ]; then
     pacman -S steam
-    yaourt -S dropbox steam-fonts multimc5 openspades leagueoflegends
+    yaourt -S dropbox steam-fonts multimc5 openspades leagueoflegends glxosd
 fi
 
 echo $host > /etc/hostname

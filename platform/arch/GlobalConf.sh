@@ -1,9 +1,6 @@
- if [ -z "$SSH_TTY" ]; then  source <(curl -s https://bit.ly/2O2ONM7Ds); else bash install_arch.sh; fi
-
- 
-newuser $user
-echo "$user|$pwd" | chpasswd
-echo "root|$rpwd" | chpasswd
+source ~/.bashrc
+newuser admin
+/bin/su -c "/path/to/backup_db.sh /tmp/test" - admin
 
 cd /tmp
 git clone https://aur.archlinux.org/package-query.git
@@ -21,10 +18,17 @@ cd /tmp
 git clone https://aur.archlinux.org/mingetty.git 
 cd mingetty 
 yes | makepkg -si
+
+
+
+
+
+
 cd
 mkdir /etc/systemd/system/getty@tty1.service.d/
-echo -e "[Service]\nExecStart=\nExecStart=-/usr/bin/agetty --autologin $user--noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d/override.conf
-
-# then auto startx + i3lock on on config 
+newuser $user
+echo "$user|$pwd" | chpasswd
+echo -e "[Service]\nExecStart=\nExecStart=-/usr/bin/agetty --autologin $user--noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d/override.conf # has to become sudo again 
+echo "root|$rpwd" | chpasswd
 
 pacman -Syu

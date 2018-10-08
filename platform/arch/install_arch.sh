@@ -154,6 +154,7 @@ sudo pip3 install greenlet==0.4.10
 # replace yaourt by su command
 # pacman no confirm
 # some packages are still for basic 
+# from the ubuntu script 
 ############################
 
 scope_notbasic='server workstation home vbox'

@@ -136,7 +136,7 @@ cd
 mkdir /etc/systemd/system/getty@tty1.service.d/
 useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner -s /bin/bash $user 
 echo "$user|$pw" | chpasswd
-echo -e "[Service]\nExecStart=\nExecStart=-/usr/bin/agetty --autologin $user--noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d/override.conf 
+echo -e "[Service]\nExecStart=\nExecStart=-/usr/bin/agetty --autologin $user --noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d/override.conf 
 userdel -r admin
 
 # if this scope then do this 

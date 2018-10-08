@@ -86,10 +86,10 @@ sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk $drive
   w # write the partition table
   q # Done 
 EOF
-mkfs.ext4 $drive1
-mkfs.ext4 $drive4
-mkfs.ext4 $drive3
-mkswap $drive2
+mkfs.ext4 -F $drive1
+mkfs.ext4 -F $drive4
+mkfs.ext4 -F $drive3
+mkswap -f $drive2
 swapon $drive2
 mount $drive3 /mnt
 mkdir /mnt/boot

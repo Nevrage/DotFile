@@ -7,7 +7,7 @@
     ## And source <(culr url.of/script)
 
 # ====================
-## ask for usernames, passwords, drive, scope of installation: basic, server, workwstation, home
+## ask for usernames, passwords, drive, hostname, scope of installation: basic, server, workwstation, home
 ## erase disk properly
 timedatectl set-ntp true
 ##### to add: ask for the name of the drive

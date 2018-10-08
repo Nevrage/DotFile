@@ -69,6 +69,8 @@ echo "root:root" | chpasswd
 pacman -S --noconfirm openssh net-tools
 echo -e "\nPermitRootLogin yes\n" >> /etc/ssh/sshd_config
 systemctl enable sshd
+echo -e "[options] \n colors\n ILoveCandy\n HoldPkg     = pacman glibc\n Architecture = auto\n Color\n CheckSpace\n SigLevel    = Required DatabaseOptional\n LocalFileSigLevel = Optional\n \n [core]\n Include = /etc/pacman.d/mirrorlist\n \n [extra]\n Include = /etc/pacman.d/mirrorlist\n \n [community]\n Include = /etc/pacman.d/mirrorlist\n \n [multilib]\n Include = /etc/pacman.d/mirrorlist" > /etc/pacman.conf
+pacman -Sy
 
 EOF
 

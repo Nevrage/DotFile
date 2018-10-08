@@ -66,7 +66,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 echo -e "newuser () { \n useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner -s /bin/bash \$1 \n }" >> ~/.bashrc
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 echo "root:root" | chpasswd
-pacman -S --noconfirm openssh net-tools
+pacman -S --noconfirm openssh net-tools curl
 echo -e "\nPermitRootLogin yes\n" >> /etc/ssh/sshd_config
 systemctl enable sshd
 echo -e "[options] \n colors\n ILoveCandy\n HoldPkg     = pacman glibc\n Architecture = auto\n Color\n CheckSpace\n SigLevel    = Required DatabaseOptional\n LocalFileSigLevel = Optional\n \n [core]\n Include = /etc/pacman.d/mirrorlist\n \n [extra]\n Include = /etc/pacman.d/mirrorlist\n \n [community]\n Include = /etc/pacman.d/mirrorlist\n \n [multilib]\n Include = /etc/pacman.d/mirrorlist" > /etc/pacman.conf
@@ -75,7 +75,11 @@ pacman -Sy
 # use answers as sys variable after reboot
 source ~/.bashrc
 newuser admin
+cd /root
+wget https://raw.githubusercontent.com/Nevrage/DotFile/master/platform/arch/GlobalConf.sh
+chmod755 /root/GlobalConf.sh
 su -c "/root/GlobalConf.sh" - admin
+rm /root/GlobalConf.sh
 
 cd
 mkdir /etc/systemd/system/getty@tty1.service.d/
@@ -83,10 +87,10 @@ newuser $user
 echo "$user|$pwd" | chpasswd
 echo -e "[Service]\nExecStart=\nExecStart=-/usr/bin/agetty --autologin $user--noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d/override.conf # has to become sudo again 
 echo "root|$rpwd" | chpasswd
-
 pacman -Syu
-
 userdel -r admin
+exit
 EOF
-
+umount -r /mnt
+reboot
 

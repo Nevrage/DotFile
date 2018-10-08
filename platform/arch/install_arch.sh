@@ -46,11 +46,11 @@ export drive=drive_var
 export host=host_var
 export scope=scope_var" > env.sh
 
-sed -i "s/_var/${}/g" env.sh
-sed -i "s/_var/${}/g" env.sh
-sed -i "s/_var/${}/g" env.sh
-sed -i "s/_var/${}/g" env.sh
-sed -i "s/_var/${}/g" env.sh
+sed -i "s/user_var/${user}/g" env.sh
+sed -i "s/pw_var/${pw}/g" env.sh
+sed -i "s/drive_var/${drive}/g" env.sh
+sed -i "s/host_var/${host}/g" env.sh
+sed -i "s/scope_var/${scope}/g" env.sh
 
 
 ## erase disk properly

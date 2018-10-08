@@ -29,7 +29,7 @@ echo "
 What is the scope of this installation?
 *********************************
 
-basic: will install barebone arch without extra user 
+base: will install barebone arch without extra user 
 server: will add more services and a non root user 
 workstation: will install all computanional tool, xorg and i3
 home: will install everything
@@ -132,70 +132,70 @@ git clone https://aur.archlinux.org/mingetty.git
 cd mingetty 
 yes | makepkg -si " - admin
 
+userdel -r admin
+
 cd
 mkdir /etc/systemd/system/getty@tty1.service.d/
 useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner -s /bin/bash $user 
 echo "$user|$pw" | chpasswd
 echo -e "[Service]\nExecStart=\nExecStart=-/usr/bin/agetty --autologin $user --noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d/override.conf 
-userdel -r admin
 
-# if this scope then do this 
-# define the scopes here 
-# how to install things with choice number 1 or all or default ?
-# option for other de and change size of certain partition 
-# keep the scope variable
-
-sudo pacman -Sy xorg xorg-xinit firefox git python-pip vim ranger tmux neofetch R  steam gcc-fortran rofi feh htop pulseaudio alsa-utils transmission-cli mpv mupdf dunst compton  gparted docker net-tools nerd-fonts-complete pandoc texlive-most cava mutt beep scrot openssh ncmpcpp mpd mpc tk gdal zsnes gdal proj geos  lib32-gconf qutebrowser ack libreoffice mariadb
-
+############################
+# keep the scope variable somewhere 
+pacman -Sy firefox python-pip tmux neofetch R  gcc-fortran rofi feh htop pulseaudio alsa-utils transmission-cli mpv mupdf dunst compton  gparted nerd-fonts-complete pandoc texlive-most cava mutt beep scrot ncmpcpp mpd mpc tk gdal zsnes gdal proj geos  lib32-gconf qutebrowser ack libreoffice mariadb
 # Potentially add t he following:
-# arduino blender calcurse cups dosbox dosfstools dunst fish gimp glxosd google-drive-ocamlfuse htop-vim-git nmap noto-fonts-git npm ntfs-3g oni p7zip pacutils peco python-eyed3 python-igraph quicklisp radeontop rofi-greenclip rsync samba sbcl scrot sshfs tmsu todotxt-git tremc-git uswsusp-git w3m wget wine-staging xbindkeys xclip xdotool xsel ympd-git zsnes 
-
-
+# arduino blender calcurse cups dosbox dosfstools dunst fish gimp glxosd google-drive-ocamlfuse htop-vim-git nmap noto-fonts-git npm ntfs-3g oni p7zip pacutils peco python-eyed3 python-igraph quicklisp radeontop rofi-greenclip rsync samba sbcl scrot sshfs tmsu todotxt-git tremc-git uswsusp-git w3m wget wine-staging xbindkeys xclip xdotool xsel ympd-git zsnes
 sudo pip3 install jedi rice rtv rice hangups stig  pywal wal-steam bpython ptpython jupyterlab pirate-get pandas numpy matplotlib todotxt-machine rtichoke menu4rofi buku #terminatables and jupyetr stuff 
-
 jupyter labextension install @jupyterlab/google-drive
-
-yaourt -S dropbox steam-fonts polybar-git bash-pipes ncmatrix cli-visualizer multimc5 i3-gaps zathura-pdf-poppler cool-retro-term unified-remote-server openspades jq-git udunits v8 #dofus
-
-
-# Invoke R installation here 
-
-cd /home/$user 
-git clone https://github.com/Nevrage/DotFile.git 
-# execute export.sh including xinitrc
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-cp /home/$user/DotFile/tty/vimrc ~/.vimrc
-vim +PluginInstall +qall #su here 
-
-systemctl enable docker
-systemctl start docker
-# add to docker group here 
-
-pacman -Syyu
+yaourt -S polybar bash-pipes ncmatrix cli-visualizer i3-gaps zathura-pdf-poppler cool-retro-term unified-remote-server jq-git udunits #dofus
 sudo pip install youtube_dl==2017.07.30.1
 sudo pip3 install greenlet==0.4.10
-pacman -Syyu
+#github and ranger stuff 
+# replace yaourt by su command
+# pacman no confirm
+# some packages are still for basic 
+############################
+
+scope_notbasic='server workstation home vbox'
+if [[ $scope == *"scope_notbasic"* ]]; then
+    cd /home/$user 
+    git clone https://github.com/Nevrage/DotFile.git /home/$user
+    mkdir -p /home/$user/.vim/bundle/
+    git clone https://github.com/VundleVim/Vundle.vim.git /home/$user/.vim/bundle/Vundle.vim
+    cp /home/$user/DotFile/tty/vimrc ~/.vimrc
+    vim +PluginInstall +qall #su here 
+fi
 
 
-#git hub stuff 
-cd
-mkdir github
-cd github
+scope_server='server workstation home'
+if [[ $scope == *"scope_server"* ]]; then
+  pacman -S docker
+  systemctl enable docker
+  # portainer
+  # .profile here for non graphic
+  usermod -G docker $user
+fi
 
-git clone https://github.com/alexanderjeurissen/ranger_devicons.git
-cd ranger_devicons 
-make install
-cd ..
+
+scope_graph='workstation home'
+if [[ $scope == *"scope_server"* ]]; then
+  # different .profile from here 
+  pacman -S xorg xorg-init
+  yaourt -S i3-gaps
+fi
+
 
 if [ $scope = "home" ]; then
     pacman -S steam
-    yaourt -S dropbox steam-fonts
+    yaourt -S dropbox steam-fonts multimc5 openspades leagueoflegends
+fi
 
 echo $host > /etc/hostname
+pacman -Syu
+rm -r /home/$user/DotFile
 exit
 EOF
 umount -r /mnt
 reboot
 
-## run until no diff between new and curren
-
+## run until no diff between new and current

@@ -73,6 +73,20 @@ echo -e "[options] \n colors\n ILoveCandy\n HoldPkg     = pacman glibc\n Archite
 pacman -Sy
 # check for scope here 
 # use answers as sys variable after reboot
+source ~/.bashrc
+newuser admin
+su -c "/root/GlobalConf.sh" - admin
+
+cd
+mkdir /etc/systemd/system/getty@tty1.service.d/
+newuser $user
+echo "$user|$pwd" | chpasswd
+echo -e "[Service]\nExecStart=\nExecStart=-/usr/bin/agetty --autologin $user--noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d/override.conf # has to become sudo again 
+echo "root|$rpwd" | chpasswd
+
+pacman -Syu
+
+userdel -r admin
 EOF
 
 

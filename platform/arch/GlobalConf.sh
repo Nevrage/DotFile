@@ -1,7 +1,7 @@
 cd /tmp
 git clone https://aur.archlinux.org/package-query.git
 cd package-query
-makepkg -si
+yes | makepkg -si
 cd ..
 git clone https://aur.archlinux.org/yaourt.git
 cd yaourt

@@ -8,6 +8,10 @@
 
 # ====================
 ## ask for usernames, passwords, drive, hostname, scope of installation: basic, server, workwstation, home
+
+
+
+
 ## erase disk properly
 timedatectl set-ntp true
 ##### to add: ask for the name of the drive
@@ -52,7 +56,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 cat << EOF | arch-chroot /mnt /bin/bash
 
 
-pacman -S --noconfirm networkmanager git curl
+pacman -S --noconfirm networkmanager git curl lm_sensors
 systemctl enable NetworkManager
 echo "en_US.UTF-8 UTF-8  " >> /etc/locale.gen
 echo "en_US ISO-8859-1  " >> /etc/locale.gen
@@ -89,6 +93,7 @@ echo -e "[Service]\nExecStart=\nExecStart=-/usr/bin/agetty --autologin $user--no
 echo "root|$rpwd" | chpasswd
 pacman -Syu
 userdel -r admin
+echo $HOST > /etc/hostname
 exit
 EOF
 umount -r /mnt

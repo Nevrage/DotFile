@@ -68,8 +68,6 @@ echo "root:root" | chpasswd
 pacman -S --noconfirm openssh net-tools
 echo -e "\nPermitRootLogin yes\n" >> /etc/ssh/sshd_config
 systemctl enable sshd
-systemctl start sshd
-
 
 EOF
 

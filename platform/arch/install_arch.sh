@@ -6,6 +6,10 @@
 # ====================
  
 # change to some dialog stuff especially for drive and scope selection 
+# would you like to run the script as is or have a chance to edit it firts ?
+# read answer 
+# if answer is yes 
+# dl the script, edit and run upon quitting
 clear
 echo "Choose a username:"
 read user 

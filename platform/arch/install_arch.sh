@@ -175,7 +175,7 @@ fi
 scope_server='server workstation home'
 if [[ $scope == *"scope_server"* ]]; then
   pacman -S docker
-  systemctl enable docker
+  systemctl enable docker.service
   # portainer
   # .profile here for non graphic
   usermod -G docker $user

@@ -1,6 +1,8 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+has('python3')
+
 Plugin 'seletskiy/vim-pythonx'
 Plugin 'johngrib/Vim-Game-Snake'
 Plugin 'johngrib/vim-game-code-break'
@@ -52,10 +54,9 @@ Plugin 'terryma/vim-multiple-cursors'
 " Plugin 'Shougo/vimshell.vim'
 " Plugin 'Shougo/vimproc.vim'
 
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-set pyxversion=3
+"set pyxversion=3
 set shortmess+=I
 filetype plugin indent on    " required
 set nocompatible                  " don't need to be compatible with old vim

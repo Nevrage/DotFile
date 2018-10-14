@@ -1,6 +1,6 @@
 xset b off
 xset b 0 0 0
-xset r rate 200 25
+xset r rate 200 50
 exec i3
 wal -R
 

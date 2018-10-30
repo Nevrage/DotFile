@@ -10,8 +10,9 @@ bindsym $mod+Shift+q kill
 
 # bindsym $mod+d exec dmenu_run
 bindsym $mod+Shift+y exec ~/github/yt.sh
-bindsym $mod+p exec ~/github/mpd_control/toggleplaypause
+bindsym $mod+p exec mpc toggle 
 bindsym $mod+n exec mpc next
+bindsym $mod+b  exec multimc -l $(cd ~/.local/share/multimc/instances/ && ls -l | grep ^d  | sed 's:.*\ ::g' | grep -v "_MMC" | rofi -i -l 5 -dmenu -p "Pick Mc Instance")
 bindsym $mod+plus  exec --no-startup-id mpc volume +5 && notify-send "mpd volume: $(mpc | head -n 2 | tail -n 1 | awk {'print $4'})"
 bindsym $mod+minus exec --no-startup-id mpc volume -5 && notify-send "mpd volume: $(mpc | head -n 2 | tail -n 1 | awk {'print $4'})"
 bindsym $mod+x exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
@@ -155,7 +156,7 @@ bindsym $mod+g exec $BROWSER
 bindsym $mod+Shift+g exec firefox -private-window
 bindsym $mod+d exec --no-startup-id rofi -l -show run -theme ~/.cache/wal/colors-rofi-dark.rasi 
 bindsym $mod+Shift+d exec --no-startup-id rofi -show window -theme ~/.cache/wal/colors-rofi-dark.rasi 
-bindsym $mod+shift+s exec --no-startup-id echo "" | rofi -dmenu -p "Search:" | xargs -I{} xdg-open https://www.google.de/search?q={}
+bindsym $mod+shift+s exec --no-startup-id echo "" | rofi -dmenu -l 0 -p "Search:" | xargs -I{} xdg-open https://www.google.de/search?q={}
 bindsym $mod+Shift+w exec --no-startup-id ~/github/buku_run/buku_run
 # bindsym $mod+Shift+h exec --no-startup-id ~/github/steamRofi
 
@@ -225,3 +226,12 @@ client.background       $bg
 #bar {
 # status_command
 #}
+
+for_window[class="dropdown"] floating enable 
+for_window[class="Minecraft"] floating enable 
+for_window[instance="dropdown"] move scratchpad 
+for_window[class="dropdown"] bordel pixel 5
+
+# exec --no-startup-id xterm -n dropdown -e "tmux attach -t Tasks"
+# bindsym $mod+u [instance="dropdown"] scratchpad show; [instance="dropdown"] move potisition center
+bindsym $mod+u exec xterm -class dropdown -e "tmux attach -t Tasks"

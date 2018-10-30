@@ -356,7 +356,7 @@ i3-msg reload
 i3-msg restart
 }
 
-# export PS1="\[$(tput setaf 1)\][\[$(tput setaf 2)\]\A\[$(tput setaf 1)\]]\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\u\[$(tput setaf 1)\]]\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\h\[$(tput setaf 1)\]]\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\W\[$(tput setaf 1)\]]\[$(tput sgr0)\] \`parse_git_branch\` \n  ____________________________\[$reset\]\n\[$green\] > \[$black\]"
+# export PS1="\[$(tput setaf 1)\][\[$(tput setaf 2)\]\A\[$(tput setaf 1)\]]\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\u\[$(tput setaf 1)\]]\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\h\[$(tput setaf 1)\]]\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\W\[$(tput setaf 1)\]]\[$(tput sgr0)\] \`parse_git_branch\` \[$reset\]\n\[$green\] > \[$black\]"
 
  export PS1="┌──\[\e[35m\]\u\[\e[m\]\[\e[31;40m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]\[\e[31;40m\]\\$\[\e[m\]\W\[\e[30;47m\]\`parse_git_branch\`\[\e[m\]\n└─╼ "
 
@@ -421,9 +421,20 @@ alias s="extended_ls"
 alias etd="v ~/Dropbox/todo/todo.txt" 
 alias insta="export PATH=$PATH:$(pwd)"
 
-task  -cyclic -out  rc.report.next.sort=due+  | grep -A13 ID 
-alias tsk="task  -cyclic -out  rc.report.next.sort=due+"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+include () {
+    [[ -f "$1" ]] && source "$1"
+}
+
+# include FILE
+if [ -f /path/to/some/file ]; then
+    source /path/to/some/file
+fi
+
+FILE=/path/to/some/file && test -f $FILE && source $FILE
+
+source FILE 2> /dev/null
+test -f $FILE && source $FILE

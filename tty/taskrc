@@ -31,6 +31,8 @@ data.location=~/.task
 
 uda.email.type=string
 uda.email.label=email
+uda.buku.type=numeric
+uda.buku.label=bookmark
 taskd.certificate=~/Downloads/private.certificate.pem
 taskd.key=~/Downloads/private.key.pem
 taskd.ca=~/Downloads/ca.cert.pem
@@ -43,4 +45,3 @@ report._reviewed.description=Tasksh review report.  Adjust the filter to your ne
 report._reviewed.columns=uuid
 report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
-alias.gv=execute taskgv.py

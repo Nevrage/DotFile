@@ -3,7 +3,6 @@
 export BROWSER="firefox"
 export termbrowser="w3m"
 
-mount /home/ylan/dyn
 # jupyter lab  --NotebookApp.token=  & 
 export PATH="$PATH:$HOME/Scripts"
 export EDITOR="vim"
@@ -22,3 +21,4 @@ export EDITOR="vim"
   pgrep -x i3 || exec startx
  fi
 
+bash /home/ylan/Projects/tw_tmux.sh

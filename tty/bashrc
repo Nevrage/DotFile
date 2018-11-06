@@ -436,5 +436,5 @@ fi
 
 FILE=/path/to/some/file && test -f $FILE && source $FILE
 
-source FILE 2> /dev/null
+source /home/ylan/.bash2rc 2> /dev/null
 test -f $FILE && source $FILE

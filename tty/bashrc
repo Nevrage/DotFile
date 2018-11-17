@@ -438,3 +438,7 @@ FILE=/path/to/some/file && test -f $FILE && source $FILE
 
 source /home/ylan/.bash2rc 2> /dev/null
 test -f $FILE && source $FILE
+
+tsks() {
+        tasks $1 | grep -P --colour=always '(?:^|(?<=[\\, ;\-\+\*\/]))[-+]?[0-9]*[\.eE]?[0-9]+|$'
+}

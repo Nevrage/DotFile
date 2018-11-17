@@ -1,4 +1,3 @@
-# add mpd stuff 
 # add more tmux stuff 
 cp ~/.Rprofile ./tty/R/Rprofile
 cp -r ~/.config/ranger/* ./tty/ranger
@@ -10,6 +9,7 @@ cp ~/.inputrc ./tty/inputrc
 cp ~/.config/neofetch/config.conf ./tty/neofetch.config.conf
 cp ~/.profile ./tty/profile
 cp ~/.config/rtv/rtv.cfg ./tty/rtv.cfg
+cp ~/.mpd/mpd.conf ./tty/mpd.conf
 cp ~/.mailcap ./tty/mailcap
 cp ~/.config/transmission-daemon/settings.json ./tty/transmission.settings.json
 cp ~/.vimrc ./tty/vimrc

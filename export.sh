@@ -13,6 +13,7 @@ cp ~/.mpd/mpd.conf ./tty/mpd.conf
 cp ~/.mailcap ./tty/mailcap
 cp ~/.config/transmission-daemon/settings.json ./tty/transmission.settings.json
 cp ~/.vimrc ./tty/vimrc
+cp ~/.newsboat/config ./tty/newsboatconfig
 cp ~/.yaourtrc ./tty/yaourtrc
 cp ~/.config/cava/config ./tty/cava.config
 cp ~/.taskrc ./tty/taskrc

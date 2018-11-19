@@ -442,3 +442,11 @@ test -f $FILE && source $FILE
 tsks() {
         tasks $1 | grep -P --colour=always '(?:^|(?<=[\\, ;\-\+\*\/]))[-+]?[0-9]*[\.eE]?[0-9]+|$'
 }
+
+
+X=$( pidof Xorg )
+if [ ${#X} -gt 0 ]; then
+    echo ""
+else
+        ~/.profile
+fi

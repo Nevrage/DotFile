@@ -167,11 +167,8 @@ bindsym $mod+Ctrl+p exec --no-startup-id rofi-mpd -p
 bindsym $mod+Shift+z exec --no-startup-id i3lock-fancy
 
 exec_always --no-startup-id transmission-daemon &
-exec_always --no-startup-id polybar example &
 exec_always --no-startup-id dropbox 
 exec_always --no-startup-id feh --bg-scale $(cat ~/.cache/wal/wal)
-exec_always --no-startup-id  xrdb -merge ~/.Xdefaults
-exec_always --no-startup-id  xrdb -merge ~/.cache/wal/colors.Xresources 
 exec_always --no-startup-id mpd
 exec_always --no-startup-id /opt/urserver/urserver
 exec_always --no-startup-id dunst
@@ -185,7 +182,7 @@ for_window [class="mpv"] floating enable
 for_window [class="BME"] floating enable
 for_window [class="mpv"] resize set 800 400
 for_window [class="mpv"] move position center
-bindsym $mod+c exec --no-startup-id compton -cCGf --opacity-rule 70:'class_g *= "XTerm"'
+bindsym $mod+c exec --no-startup-id compton 
 
 bindsym $mod+Shift+c exec --no-startup-id killall compton
 
@@ -235,3 +232,8 @@ for_window[class="dropdown"] bordel pixel 5
 # exec --no-startup-id xterm -n dropdown -e "tmux attach -t Tasks"
 # bindsym $mod+u [instance="dropdown"] scratchpad show; [instance="dropdown"] move potisition center
 bindsym $mod+u exec xterm -class dropdown -e "tmux attach -t Tasks"
+
+exec_always --no-startup-id  compton -b
+exec_always --no-startup-id polybar example &
+exec_always --no-startup-id wal -R
+exec_always --no-startup-id i3lock-fancy

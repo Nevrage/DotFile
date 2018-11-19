@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 export BROWSER="firefox"
 export termbrowser="w3m"
@@ -14,11 +14,14 @@ export EDITOR="vim"
 
 [ -f ~/.bashrc ] && source ~/.bashrc
 
- wal -Rn
+wal -Rn
+bash  "cd ~/Dropbox/ && tmsu mount ~/drives/dyn/"
+exec /home/ylan/Scripts/tw_tmux.sh
+
 
  # Start graphical server if i3 not already running.
  if [ "$(tty)" = "/dev/tty1" ]; then
   pgrep -x i3 || exec startx
  fi
 
-bash /home/ylan/Projects/tw_tmux.sh
+

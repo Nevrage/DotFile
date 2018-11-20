@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export BROWSER="firefox"
+export BROWSER="qutebrowser"
 export termbrowser="w3m"
 
 # jupyter lab  --NotebookApp.token=  & 

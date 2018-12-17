@@ -15,8 +15,8 @@ export EDITOR="vim"
 [ -f ~/.bashrc ] && source ~/.bashrc
 
 wal -Rn
-bash  "cd ~/Dropbox/ && tmsu mount ~/drives/dyn/"
-exec /home/ylan/Scripts/tw_tmux.sh
+# bash  "cd ~/Dropbox/ && tmsu mount ~/drives/dyn/"
+# exec /home/ylan/Scripts/tw_tmux.sh
 
 
  # Start graphical server if i3 not already running.

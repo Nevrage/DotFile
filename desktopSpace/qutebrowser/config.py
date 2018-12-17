@@ -97,7 +97,7 @@ c.auto_save.interval = 15000
 
 # Always restore open sites when qutebrowser is reopened.
 # Type: Bool
-c.auto_save.session = False
+c.auto_save.session = True
 
 # Size (in bytes) of the HTTP network cache. Null to use the default
 # value. With QtWebEngine, the maximum supported value is 2147483647 (~2
@@ -1373,8 +1373,10 @@ config.bind(']]', 'navigate next')
 config.bind('`', 'enter-mode set_mark')
 config.bind('ad', 'download-cancel')
 config.bind('at', 'spawn  bukuAddRofi {url} ')
+config.bind('ab', 'spawn  bukuadd {url}')
+config.bind('sb', 'spawn  bukudel {url}')
 config.bind('aut', 'spawn bukuUpdateTag {url}')
-config.bind('b', 'set-cmd-text -s :quickmark-load')
+config.bind('pb', 'set-cmd-text -s :spawn buku -a {url}  ')
 config.bind('cd', 'download-clear')
 config.bind('co', 'tab-only')
 config.bind('d', 'scroll-page 0 0.5')
@@ -1514,6 +1516,7 @@ config.bind('<Shift+Ins>', 'insert-text {primary}', mode='insert')
 # Bindings for passthrough mode
 config.bind('<Ctrl+v>', 'leave-mode', mode='passthrough')
 
+config.bind('<Alt+t>', 'tab-give')
 # Bindings for prompt mode
 config.bind('<Alt+Backspace>', 'rl-backward-kill-word', mode='prompt')
 config.bind('<Alt+b>', 'rl-backward-word', mode='prompt')
@@ -1534,6 +1537,10 @@ config.bind('<Down>', 'prompt-item-focus next', mode='prompt')
 config.bind('<Escape>', 'leave-mode', mode='prompt')
 config.bind('<Return>', 'prompt-accept', mode='prompt')
 config.bind('<Shift+Tab>', 'prompt-item-focus prev', mode='prompt')
+config.bind(',t', 'hint links spawn transmission-remote -a {hint-url}')
+config.bind(',T', 'hint -r links spawn transmission-remote -a {hint-url}')
+config.bind('ahb', 'hint links spawn bukuadd {hint-url}')
+config.bind('gs', 'spawn youtube-dl --extract-audio --audio-format mp3  {url}')
 config.bind('<Tab>', 'prompt-item-focus next', mode='prompt')
 config.bind('<Up>', 'prompt-item-focus prev', mode='prompt')
 config.bind('n', 'prompt-accept no', mode='prompt')

@@ -3,6 +3,7 @@ call vundle#begin()
 
 
 Plugin 'seletskiy/vim-pythonx'
+Plugin 'mboughaba/i3config.vim'
 Plugin 'johngrib/Vim-Game-Snake'
 Plugin 'johngrib/vim-game-code-break'
 Plugin 'jalvesaq/vimcmdline'
@@ -26,7 +27,7 @@ Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'airblade/vim-gitgutter'
+"Plugin 'airblade/vim-gitgutter'
 Plugin 'airblade/vim-rooter'
 " Plugin 'francoiscabrol/ranger.vim'
 Plugin 'airblade/vim-accent'
@@ -176,9 +177,9 @@ let g:syntastic_check_on_wq = 0
 
 " autocmd FileType r call cm#enable_for_buffer() | sleep 300m | let g:_cm_sources['R']['sort'] = 0
 
-Plugin 'roxma/nvim-completion-manager'
+"Plugin 'roxma/nvim-completion-manager'
 Plugin 'gaalcaras/ncm-R'
-Plugin 'roxma/vim-hug-neovim-rpc'
+""Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'roxma/nvim-yarp'
 if has("unix")
   let s:uname = system("uname -s")

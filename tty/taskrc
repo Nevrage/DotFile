@@ -11,7 +11,7 @@
 # Use the command 'task show' to see all defaults and overrides
 
 # Files
-data.location=~/.task
+data.location=~/Files/Data/Tasks
 
 # Color theme (uncomment one to use)
 #include /usr/share/doc/task/rc/light-16.theme
@@ -33,9 +33,9 @@ uda.email.type=string
 uda.email.label=email
 uda.buku.type=numeric
 uda.buku.label=bookmark
-taskd.certificate=~/Downloads/private.certificate.pem
-taskd.key=~/Downloads/private.key.pem
-taskd.ca=~/Downloads/ca.cert.pem
+taskd.certificate=~/Files/Data/auth/intheam/private.certificate.pem
+taskd.key=~/Files/Data/auth/intheam/private.key.pem
+taskd.ca=~/Files/Data/auth/intheam/ca.cert.pem
 taskd.server=taskwarrior.inthe.am:53589
 taskd.credentials=inthe_am/ylan.allouche/f5d3fc19-0ac6-4c76-bfdb-1ab20ddd9b6f
 taskd.trust=ignore hostname

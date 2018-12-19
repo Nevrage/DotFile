@@ -23,6 +23,7 @@ cp ~/.davmail.properties  ./tty/davmail.properties
 # cp ~/.offlineimaprc ~/DotFile/tty/offlineimaprc
 # cp ~/.msmtprc ~/DotFile/tty/msmtprc
 cp ~/.config/pirate-get ./tty/pirate-get
+cp -r ~/.config/ncmpcpp ./tty/ncmpcpp
 
 cp ~/.config/qutebrowser/config.py  ./desktopSpace/qutebrowser/config.py
 cp ~/.config/qutebrowser/keys.conf  ./desktopSpace/qutebrowser/keys.conf

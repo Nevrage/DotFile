@@ -1,29 +1,46 @@
-set mbox_type   = Maildir
-set folder      = ~/Mail
-set sendmail    = "/usr/bin/msmtp"
-set spoolfile   = "+kws/INBOX"
-set mbox        = "+[kws]"
-set postponed   = "+[kws]/Drafts"
+set from = "<>@gmail.com"
+set use_from = yes
+
+set smtp_url = "smtps://@gmail.com@smtp.gmail.com:465/"
+set smtp_pass = ""
+set imap_user = ""
+set imap_pass = ""
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set ssl_force_tls = yes
+
+# G to get mail
+bind index G imap-fetch-mail
+set editor = "vim"
+set charset = "utf-8"
+set record = ''
+set smtp_authenticators = 'gssapi:login'
+
+
+#set mbox_type   = Maildir
+#set folder      = ~/Mail
+#set sendmail    = "/usr/bin/msmtp"
+#set spoolfile   = "+kws/INBOX"
+#set mbox        = "+[kws]"
+#set postponed   = "+[kws]/Drafts"
 unset record
 
-mailboxes +INBOX
+# mailboxes +INBOX
 
 set smart_wrap
 set include = yes 
 set fast_reply =yes 
 set sleep_time = 0 
 
-set from="yallouche@keywordsstudios.com"
-set realname='Ylan Allouche'
+set realname=''
 # set imap_keepalive=900   # Set lower if connection times out
 set header_cache=~/.mutt/cache/headers
-set trash='+kws/Trash'
+# set trash='+kws/Trash'
 set message_cachedir=~/.mutt/cache/bodies
 
 ##SMTP,For Sent mail
 
 #set envelope_from=yes
-my_hdr From: "yallouche@keywordsstudios.com"
 
 ##Sort by newest conversation first.
 set sort = reverse-threads

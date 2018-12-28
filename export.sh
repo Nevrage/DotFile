@@ -18,7 +18,8 @@ cp ~/.yaourtrc ./tty/yaourtrc
 cp ~/.config/cava/config ./tty/cava.config
 cp ~/.taskrc ./tty/taskrc
 cp ~/.notmuch-config ./tty/notmuch-config
-cp -r ~/.mutt/*  ./tty/mutt/
+cp ~/.mutt/muttrc  ./tty/mutt/muttrc
+cp ~/.mutt/mailcap ./tty/mutt/mailcap
 cp ~/.davmail.properties  ./tty/davmail.properties
 # cp ~/.offlineimaprc ~/DotFile/tty/offlineimaprc
 # cp ~/.msmtprc ~/DotFile/tty/msmtprc

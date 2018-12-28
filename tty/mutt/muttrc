@@ -1,38 +1,28 @@
-set from = "<>@gmail.com"
-set use_from = yes
+folder-hook 'gmail' 'source ~/.mutt/gmail/gmail.muttrc'
+folder-hook 'kws' 'source ~/.mutt/kws/kws.muttrc'
 
-set smtp_url = "smtps://@gmail.com@smtp.gmail.com:465/"
-set smtp_pass = ""
-set imap_user = ""
-set imap_pass = ""
-set folder = "imaps://imap.gmail.com:993"
-set spoolfile = "+INBOX"
-set ssl_force_tls = yes
+# Default account
+source ~/.mutt/gmail/gmail.muttrc
 
-# G to get mail
+# Macros for switching accounts
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/gmail/gmail.muttrc<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/kws/kws.muttrc<enter><change-folder>!<enter>'
+
+# Fetch mail shortcut
 bind index G imap-fetch-mail
+
+
+
 set editor = "vim"
 set charset = "utf-8"
 set record = ''
-set smtp_authenticators = 'gssapi:login'
-
-
-#set mbox_type   = Maildir
-#set folder      = ~/Mail
-#set sendmail    = "/usr/bin/msmtp"
-#set spoolfile   = "+kws/INBOX"
-#set mbox        = "+[kws]"
-#set postponed   = "+[kws]/Drafts"
 unset record
-
-# mailboxes +INBOX
 
 set smart_wrap
 set include = yes 
 set fast_reply =yes 
 set sleep_time = 0 
 
-set realname=''
 # set imap_keepalive=900   # Set lower if connection times out
 set header_cache=~/.mutt/cache/headers
 # set trash='+kws/Trash'
@@ -41,6 +31,7 @@ set message_cachedir=~/.mutt/cache/bodies
 ##SMTP,For Sent mail
 
 #set envelope_from=yes
+# my_hdr From: "yallouche@keywordsstudios.com"
 
 ##Sort by newest conversation first.
 set sort = reverse-threads
@@ -115,6 +106,8 @@ alternative_order text/plain text/enriched text/html  # save html for last
 macro pager R "<enter-command>set pipe_decode=yes<enter>v|grep -v '^>' | speedread<enter><enter-command>unset pipe_decode<enter>q" "speedread"
 
 bind attach <return>    view-mailcap
+
+set mailcap_path    = ~/.mutt/mailcap
 
 ignore *
 unignore From To Cc Bcc Subject Date 

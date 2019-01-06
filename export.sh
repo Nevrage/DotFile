@@ -26,6 +26,7 @@ cp ~/.davmail.properties  ./tty/davmail.properties
 cp ~/.config/pirate-get ./tty/pirate-get
 cp -r ~/.config/ncmpcpp ./tty/ncmpcpp
 
+cp /home/ylan/.config/gtk-3.0/* ./desktopSpace/gtk3/
 cp ~/.config/qutebrowser/config.py  ./desktopSpace/qutebrowser/config.py
 cp ~/.config/qutebrowser/keys.conf  ./desktopSpace/qutebrowser/keys.conf
 cp ~/.config/qutebrowser/style.css  ./desktopSpace/qutebrowser/style.css

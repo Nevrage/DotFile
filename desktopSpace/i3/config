@@ -241,6 +241,7 @@ for_window[class="dropdown"] bordel pixel 5
 bindsym $mod+u exec xterm -class dropdown -e "tmux attach -t Tasks"
 
 exec_always --no-startup-id  compton -b
+exec_always --no-startup-id  musnify-mpd
 exec_always --no-startup-id polybar example &
 exec_always --no-startup-id wal -R
 exec_always --no-startup-id i3lock-fancy

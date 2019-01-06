@@ -2,7 +2,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 
-Plugin 'seletskiy/vim-pythonx'
+"Plugin 'seletskiy/vim-pythonx'
 Plugin 'mboughaba/i3config.vim'
 Plugin 'johngrib/Vim-Game-Snake'
 Plugin 'johngrib/vim-game-code-break'
@@ -56,7 +56,7 @@ Plugin 'terryma/vim-multiple-cursors'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-set pyxversion=3
+"set pyxversion=3
 set shortmess+=I
 filetype plugin indent on    " required
 set nocompatible                  " don't need to be compatible with old vim
@@ -109,7 +109,7 @@ endif
 cmap w!! w !sudo tee % >/dev/null
 
 set t_Co=256
-set term=xterm-256color
+"set term=xterm-256color
 
 "Buttons for going to previous/next file (buffer)
 map <F2> :bprevious<CR>
@@ -143,7 +143,7 @@ map <F12> :bd!<CR>
 "highlight SpellBad     ctermbg=0   ctermfg=1
 "set autoindent                    " set auto indent
 "set ts=2                          " set indent to 2 spaces
-set t_Co=256
+"set t_Co=256
 colorscheme wal
 
 let g:airline_powerline_fonts=1 "Requires powerline fonts!
@@ -177,10 +177,10 @@ let g:syntastic_check_on_wq = 0
 
 " autocmd FileType r call cm#enable_for_buffer() | sleep 300m | let g:_cm_sources['R']['sort'] = 0
 
-"Plugin 'roxma/nvim-completion-manager'
-Plugin 'gaalcaras/ncm-R'
-""Plugin 'roxma/vim-hug-neovim-rpc'
+Plugin 'ncm2/ncm2'
 Plugin 'roxma/nvim-yarp'
+Plugin 'gaalcaras/ncm-R'
+
 if has("unix")
   let s:uname = system("uname -s")
   if s:uname == "Darwin"
@@ -237,9 +237,9 @@ let cmdline_app['python'] = 'ptpython3'
 Plugin 'sirver/UltiSnips'"
 
 " make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+"let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+"let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+"let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -262,8 +262,6 @@ map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
 if !exists('$TMUX')
         let cmdline_external_term_cmd = "xterm -e '%s' &"
 endif
-
-
 
 if $TMUX != ''
     let R_source = '~/.vim/bundle/Nvim-R/R/tmux_split.vim'

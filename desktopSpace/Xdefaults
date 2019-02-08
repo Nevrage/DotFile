@@ -1,5 +1,5 @@
-XTerm*faceName: DejaVuSansMono Nerd Font
-XTerm*fonsize: 11
+XTerm*faceName: FuraCode Nerd Font
+XTerm*fonsize: 18
 XTerm*selectToClipboard: true
 XTerm*visualBell: false
 Xterm*Bell: false

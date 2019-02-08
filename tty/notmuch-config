@@ -47,7 +47,7 @@ primary_email=yallouche@keywordsstudios.com
 #		in the mail store.
 #
 [new]
-tags=unread;
+tags=new;
 ignore=
 
 # Search configuration

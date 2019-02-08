@@ -7,8 +7,8 @@ library(grDevices)
 options(prompt = blue("⇨  "))
 # options(prompt = blue("─╼ "))
 
-options(rtichoke.editing_mode = "vi",
-        rtichoke.auto_match = TRUE)
+options(radian.editing_mode = "vi",
+        radian.auto_match = TRUE)
 
 
 makecolors <- function() {
@@ -66,3 +66,4 @@ options(htmlhelp=TRUE)
 }
 
 # add if interactive to fix some of the issues while isntalling new packages
+options(java.parameters = "-Xmx2048m")

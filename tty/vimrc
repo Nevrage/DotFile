@@ -201,7 +201,7 @@ let g:airline_powerline_fonts=1
 
 
 
-let R_app = "rtichoke" 
+let R_app = "radian" 
 let R_cmd = "R" 
 let R_hl_term = 0 
 let R_args = []  " if you had set any 
@@ -229,9 +229,9 @@ nnoremap <buffer> <leader>ab :ArduinoChooseBoard<CR>
 nnoremap <buffer> <leader>ap :ArduinoChooseProgrammer<CR>
 
 let cmdline_app           = {}
+let cmdline_external_term_cmd = "xterm -e '%s' &"
 let cmdline_follow_colorscheme = 1
 let cmdline_app['python'] = 'ptpython3'
-let cmdline_app['sh'] = 'ssh root@192.168.2.100'
 
 
 Plugin 'sirver/UltiSnips'"
@@ -280,3 +280,5 @@ let R_assign = 0
 
 xnoremap <leader>c <esc>:'<,'>:w !bash<CR>
 set foldmethod=indent
+autocmd FileType markdown setlocal spell
+autocmd FileType mail setlocal spell

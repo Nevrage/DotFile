@@ -9,7 +9,7 @@
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
 # Type: Dict
-c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save'}
+c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save'}
 
 # Require a confirmation before quitting the application.
 # Type: ConfirmQuit
@@ -28,7 +28,7 @@ c.confirm_quit = ['never']
 c.history_gap_interval = 30
 
 # When to find text on a page case-insensitively.
-# Type: String
+# Type: IgnoreCase
 # Valid values:
 #   - always: Search case-insensitively.
 #   - never: Search case-sensitively.
@@ -90,6 +90,13 @@ c.qt.args = []
 # Type: String
 c.qt.force_platform = None
 
+# Turn on Qt HighDPI scaling. This is equivalent to setting
+# QT_AUTO_SCREEN_SCALE_FACTOR=1 in the environment. It's off by default
+# as it can cause issues with some bitmap fonts. As an alternative to
+# this, it's possible to set font sizes and the `zoom.default` setting.
+# Type: Bool
+c.qt.highdpi = True
+
 # Time interval (in milliseconds) between auto-saves of
 # config/cookies/etc.
 # Type: Int
@@ -125,7 +132,7 @@ c.content.cache.appcache = True
 # Type: String
 # Valid values:
 #   - all: Accept all cookies.
-#   - no-3rdparty: Accept cookies from the same origin only.
+#   - no-3rdparty: Accept cookies from the same origin only. This is known to break some sites, such as GMail.
 #   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain. On QtWebEngine, this is the same as no-3rdparty.
 #   - never: Don't accept cookies at all.
 c.content.cookies.accept = 'no-3rdparty'
@@ -173,12 +180,13 @@ c.content.headers.custom = {}
 c.content.headers.do_not_track = True
 
 # When to send the Referer header. The Referer header tells websites
-# from which website you were coming from when visiting them.
+# from which website you were coming from when visiting them. No restart
+# is needed with QtWebKit.
 # Type: String
 # Valid values:
 #   - always: Always send the Referer.
 #   - never: Never send the Referer. This is not recommended, as some sites may break.
-#   - same-domain: Only send the Referer for the same domain. This will still protect your privacy, but shouldn't break any sites.
+#   - same-domain: Only send the Referer for the same domain. This will still protect your privacy, but shouldn't break any sites. With QtWebEngine, the referer will still be sent for other domains, but with stripped path information.
 c.content.headers.referer = 'same-domain'
 
 # User agent to send. Unset to send the default. Note that the value
@@ -193,15 +201,22 @@ c.content.host_blocking.enabled = True
 # List of URLs of lists which contain hosts to block.  The file can be
 # in one of the following formats:  - An `/etc/hosts`-like file - One
 # host per line - A zip-file of any of the above, with either only one
-# file, or a file   named `hosts` (with any extension).
+# file, or a file   named `hosts` (with any extension).  It's also
+# possible to add a local file or directory via a `file://` URL. In case
+# of a directory, all files in the directory are read as adblock lists.
+# The file `~/.config/qutebrowser/blocked-hosts` is always read if it
+# exists.
 # Type: List of Url
 c.content.host_blocking.lists = ['https://www.malwaredomainlist.com/hostslist/hosts.txt', 'http://someonewhocares.org/hosts/hosts', 'http://winhelp2002.mvps.org/hosts.zip', 'http://malwaredomains.lehigh.edu/files/justdomains.zip', 'https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext']
 
-# List of domains that should always be loaded, despite being ad-
-# blocked. Domains may contain * and ? wildcards and are otherwise
-# required to exactly match the requested domain. Local domains are
-# always exempt from hostblocking.
-# Type: List of String
+# A list of patterns that should always be loaded, despite being ad-
+# blocked. Note this whitelists blocked hosts, not first-party URLs. As
+# an example, if `example.org` loads an ad from `ads.example.org`, the
+# whitelisted host should be `ads.example.org`. If you want to disable
+# the adblocker on a given page, use the `content.host_blocking.enabled`
+# setting with a URL pattern instead. Local domains are always exempt
+# from hostblocking.
+# Type: List of UrlPattern
 c.content.host_blocking.whitelist = ['piwik.org']
 
 # Enable hyperlink auditing (`<a ping>`).
@@ -343,7 +358,7 @@ c.content.webgl = True
 
 # Monitor load requests for cross-site scripting attempts. Suspicious
 # scripts will be blocked and reported in the inspector's JavaScript
-# console. Enabling this feature might have an impact on performance.
+# console.
 # Type: Bool
 c.content.xss_auditing = False
 
@@ -385,11 +400,6 @@ c.completion.scrollbar.padding = 2
 # Format of timestamps (e.g. for the history completion).
 # Type: TimestampTemplate
 c.completion.timestamp_format = '%Y-%m-%d'
-
-# Number of URLs to show in the web history. 0: no history / -1:
-# unlimited
-# Type: Int
-c.completion.web_history_max_items = -1
 
 # Minimum amount of characters needed to update completions.
 # Type: Int
@@ -442,7 +452,7 @@ c.downloads.remove_finished = 500
 # `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 # Same as `{column}`, but starting from index 0.
 # Type: ShellCommand
-c.editor.command = ['gvim', '-f', '{}']
+c.editor.command = ['vim', '-f', '{}']
 
 # Encoding to use for the editor.
 # Type: Encoding
@@ -583,10 +593,6 @@ c.prompt.filebrowser = True
 # Type: Int
 c.prompt.radius = 8
 
-# Show a scrollbar.
-# Type: Bool
-c.scrolling.bar = False
-
 # Enable smooth scrolling for web pages. Note smooth scrolling does not
 # work with the `:scroll-px` command.
 # Type: Bool
@@ -688,7 +694,8 @@ c.tabs.last_close = 'close'
 # Type: Bool
 c.tabs.mousewheel_switching = True
 
-# Position of new tabs opened from another tab.
+# Position of new tabs opened from another tab. See
+# `tabs.new_position.stacking` for controlling stacking behavior.
 # Type: NewTabPosition
 # Valid values:
 #   - prev: Before the current tab.
@@ -697,7 +704,8 @@ c.tabs.mousewheel_switching = True
 #   - last: At the end.
 c.tabs.new_position.related = 'next'
 
-# Position of new tabs which aren't opened from another tab.
+# Position of new tabs which are not opened from another tab. See
+# `tabs.new_position.stacking` for controlling stacking behavior.
 # Type: NewTabPosition
 # Valid values:
 #   - prev: Before the current tab.
@@ -899,7 +907,7 @@ c.colors.completion.item.selected.border.top = '#bbbb00'
 c.colors.completion.item.selected.border.bottom = '#bbbb00'
 
 # Foreground color of the matched text in the completion.
-# Type: QssColor
+# Type: QtColor
 c.colors.completion.match.fg = '#ff4444'
 
 # Color of the scrollbar handle in the completion view.
@@ -1287,6 +1295,8 @@ c.bindings.key_mappings = {'<Ctrl+[>': '<Escape>', '<Ctrl+6>': '<Ctrl+^>', '<Ctr
 # Bindings for normal mode
 config.bind("'", 'enter-mode jump_mark')
 config.bind('+', 'zoom-in')
+config.bind(',T', 'hint -r links spawn transmission-remote -a {hint-url}')
+config.bind(',t', 'hint links spawn transmission-remote -a {hint-url}')
 config.bind('-', 'zoom-out')
 config.bind('.', 'repeat-command')
 config.bind('/', 'set-cmd-text /')
@@ -1313,6 +1323,7 @@ config.bind('<Alt+6>', 'tab-focus 6')
 config.bind('<Alt+7>', 'tab-focus 7')
 config.bind('<Alt+8>', 'tab-focus 8')
 config.bind('<Alt+9>', 'tab-focus -1')
+config.bind('<Alt+t>', 'tab-give')
 config.bind('<Back>', 'back')
 config.bind('<Ctrl+Alt+p>', 'print')
 config.bind('<Ctrl+F5>', 'reload -f')
@@ -1371,12 +1382,11 @@ config.bind('ZZ', 'quit --save')
 config.bind('[[', 'navigate prev')
 config.bind(']]', 'navigate next')
 config.bind('`', 'enter-mode set_mark')
-config.bind('ad', 'download-cancel')
-config.bind('at', 'spawn  bukuAddRofi {url} ')
 config.bind('ab', 'spawn  bukuadd {url}')
-config.bind('sb', 'spawn  bukudel {url}')
+config.bind('ad', 'download-cancel')
+config.bind('ahb', 'hint links spawn bukuadd {hint-url}')
+config.bind('at', 'spawn  bukuAddRofi {url} ')
 config.bind('aut', 'spawn bukuUpdateTag {url}')
-config.bind('pb', 'set-cmd-text -s :spawn buku -a {url}  ')
 config.bind('cd', 'download-clear')
 config.bind('co', 'tab-only')
 config.bind('d', 'scroll-page 0 0.5')
@@ -1398,6 +1408,7 @@ config.bind('gl', 'tab-move -')
 config.bind('gm', 'tab-move')
 config.bind('go', 'set-cmd-text :open {url:pretty}')
 config.bind('gr', 'tab-move +')
+config.bind('gs', 'spawn youtube-dl --extract-audio --audio-format mp3  {url}')
 config.bind('gt', 'set-cmd-text -s :buffer')
 config.bind('gu', 'navigate up')
 config.bind('h', 'scroll left')
@@ -1409,17 +1420,18 @@ config.bind('m', 'quickmark-save')
 config.bind('n', 'search-next')
 config.bind('o', 'set-cmd-text -s :open')
 config.bind('pP', 'open -- {primary}')
+config.bind('pb', 'set-cmd-text -s :spawn buku -a {url}  ')
 config.bind('pp', 'open -- {clipboard}')
 config.bind('q', 'record-macro')
 config.bind('r', 'reload')
+config.bind('sb', 'spawn  bukudel {url}')
 config.bind('sf', 'save')
 config.bind('sk', 'set-cmd-text -s :bind')
 config.bind('sl', 'set-cmd-text -s :set -t')
 config.bind('ss', 'set-cmd-text -s :set')
-config.bind('th', 'back -t')
+config.bind('th', 'hint links spawn --detach mpv {hint-url}')
 config.bind('tl', 'forward -t')
 config.bind('tt', 'spawn --detach mpv {url}')
-config.bind('th', 'hint links spawn --detach mpv {hint-url}')
 config.bind('u', 'scroll-page 0 -0.5')
 config.bind('v', 'enter-mode caret')
 config.bind('wB', 'set-cmd-text -s :bookmark-load -w')
@@ -1516,7 +1528,6 @@ config.bind('<Shift+Ins>', 'insert-text {primary}', mode='insert')
 # Bindings for passthrough mode
 config.bind('<Ctrl+v>', 'leave-mode', mode='passthrough')
 
-config.bind('<Alt+t>', 'tab-give')
 # Bindings for prompt mode
 config.bind('<Alt+Backspace>', 'rl-backward-kill-word', mode='prompt')
 config.bind('<Alt+b>', 'rl-backward-word', mode='prompt')
@@ -1537,10 +1548,6 @@ config.bind('<Down>', 'prompt-item-focus next', mode='prompt')
 config.bind('<Escape>', 'leave-mode', mode='prompt')
 config.bind('<Return>', 'prompt-accept', mode='prompt')
 config.bind('<Shift+Tab>', 'prompt-item-focus prev', mode='prompt')
-config.bind(',t', 'hint links spawn transmission-remote -a {hint-url}')
-config.bind(',T', 'hint -r links spawn transmission-remote -a {hint-url}')
-config.bind('ahb', 'hint links spawn bukuadd {hint-url}')
-config.bind('gs', 'spawn youtube-dl --extract-audio --audio-format mp3  {url}')
 config.bind('<Tab>', 'prompt-item-focus next', mode='prompt')
 config.bind('<Up>', 'prompt-item-focus prev', mode='prompt')
 config.bind('n', 'prompt-accept no', mode='prompt')

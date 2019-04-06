@@ -390,7 +390,7 @@ alias dlytmp3="youtube-dl --extract-audio --audio-format mp3"
 PATH="$HOME/bin:$PATH"
 
 alias ww="ranger --cmd=tmsu_init"
-alias s="extended_ls"
+alias s="ls_extended"
 alias etd="v ~/Files/Data/todo/todo.txt" 
 alias insta="export PATH=$PATH:$(pwd)"
 
@@ -431,4 +431,5 @@ clear
 alias vz='vim "$(fzf)"'
 alias watsh='watch -c -t \"!!\"'
 alias i3="vim ~/.config/i3/config"
-
+alias vg="vim +Goyo "
+alias sh="stow -t ~"

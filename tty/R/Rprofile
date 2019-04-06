@@ -67,3 +67,7 @@ options(htmlhelp=TRUE)
 
 # add if interactive to fix some of the issues while isntalling new packages
 options(java.parameters = "-Xmx2048m")
+cat(noquote(paste("Login time:", Sys.time(),"\n")))
+cat(noquote(paste("Working Directory:", getwd(),"\n")))
+
+filer <- dplyr::filer

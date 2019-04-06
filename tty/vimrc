@@ -214,7 +214,7 @@ let g:gutentags_cache_dir = '~/.vim/tags/'
 map <C-S> :SyntasticToggleMode<CR>
 
 set shortmess=I " Read :help shortmess for everything else.
-let R_start_libs = 'base, stats, graphics, grDevices, utils, methods, tidyverse'
+let R_start_libs = 'base, stats, graphics, grDevices, utils, methods, tidyverse, plyr, dplyr, forcats, lubridate'
 let R_pdfviewer = "mupdf"
 
 let R_csv_app = 'terminal:scim'
@@ -269,6 +269,8 @@ if $TMUX != ''
 endif
 
 
+
+
 let g:rout_follow_colorscheme = 1
 let g:Rout_more_colors = 1
 
@@ -276,7 +278,7 @@ noremap Q !!$SHELL <CR>
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 let R_assign = 0 
-
+let R_args_in_stline = 1
 
 xnoremap <leader>c <esc>:'<,'>:w !bash<CR>
 set foldmethod=indent

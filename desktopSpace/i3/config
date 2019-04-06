@@ -5,7 +5,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 
-exec_always --no-startup-id polybar example &
+exec_always --no-startup-id polybar example 
 
 bindsym $mod+Return exec xterm
 # bindsym $mod+Shift+Return exec xterm -e "xdg-open ~"
